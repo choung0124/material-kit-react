@@ -97,6 +97,7 @@ function Presentation() {
               backgroundColor: "#e6d7ff",
               backdropFilter: "saturate(200%) blur(30px)",
               boxShadow: ({ boxShadows: { xxl } }) => xxl,
+              border: "2px solid white",
             }}
           >
             <Container>

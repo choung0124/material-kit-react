@@ -36,7 +36,7 @@ const DateTracker = ({ startDate }) => {
 
   return (
     <MKBox>
-      <MKTypography variant="body2" fontWeight="bold" gutterBottom>
+      <MKTypography variant="body2" fontWeight="bold" gutterBottom color="white">
         {elapsedTime.days} d, {elapsedTime.hours} hr, {elapsedTime.minutes} min, and{" "}
         {elapsedTime.seconds} s ago.
       </MKTypography>

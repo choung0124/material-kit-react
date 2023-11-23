@@ -33,6 +33,8 @@ import img13 from "assets/images/gallery/BothOfUs/13.jpg";
 import img14 from "assets/images/gallery/BothOfUs/14.jpg";
 import img15 from "assets/images/gallery/BothOfUs/15.jpg";
 
+import Gallery from "./Gallery";
+
 function ImageGallery() {
   const [imageHeight, setImageHeight] = useState(0);
   useEffect(() => {
@@ -42,6 +44,48 @@ function ImageGallery() {
     };
     img.src = bgImage;
   }, [bgImage]);
+
+  const galleryImages = [
+    { id: 1, src: require("assets/images/gallery/BothOfUs/1.jpg"), alt: "Description of image 1" },
+    { id: 2, src: require("assets/images/gallery/BothOfUs/2.jpg"), alt: "Description of image 2" },
+    { id: 3, src: require("assets/images/gallery/BothOfUs/3.jpg"), alt: "Description of image 2" },
+    { id: 4, src: require("assets/images/gallery/BothOfUs/4.jpg"), alt: "Description of image 2" },
+    { id: 5, src: require("assets/images/gallery/BothOfUs/5.jpg"), alt: "Description of image 2" },
+    { id: 6, src: require("assets/images/gallery/BothOfUs/6.jpg"), alt: "Description of image 2" },
+    { id: 7, src: require("assets/images/gallery/BothOfUs/7.jpg"), alt: "Description of image 2" },
+    { id: 8, src: require("assets/images/gallery/BothOfUs/8.jpg"), alt: "Description of image 2" },
+    { id: 9, src: require("assets/images/gallery/BothOfUs/9.jpg"), alt: "Description of image 2" },
+    {
+      id: 10,
+      src: require("assets/images/gallery/BothOfUs/10.jpg"),
+      alt: "Description of image 2",
+    },
+    {
+      id: 11,
+      src: require("assets/images/gallery/BothOfUs/11.jpg"),
+      alt: "Description of image 2",
+    },
+    {
+      id: 12,
+      src: require("assets/images/gallery/BothOfUs/12.jpg"),
+      alt: "Description of image 2",
+    },
+    {
+      id: 13,
+      src: require("assets/images/gallery/BothOfUs/13.jpg"),
+      alt: "Description of image 2",
+    },
+    {
+      id: 14,
+      src: require("assets/images/gallery/BothOfUs/14.jpg"),
+      alt: "Description of image 2",
+    },
+    {
+      id: 15,
+      src: require("assets/images/gallery/BothOfUs/15.jpg"),
+      alt: "Description of image 2",
+    },
+  ];
 
   const images = [
     img1,
@@ -62,10 +106,10 @@ function ImageGallery() {
   ];
 
   const imageStyle = {
-    width: "200px",
-    maxHeight: "300px",
+    width: "75px",
+    maxHeight: "150px",
     objectFit: "cover",
-    margin: "10px",
+    margin: "5px",
     transition: "transform 0.3s ease-in-out", // Animation effect
   };
 
@@ -124,6 +168,17 @@ function ImageGallery() {
             }}
           >
             <MKBox px={3} py={2}>
+              <Gallery images={galleryImages} />
+            </MKBox>
+            <MKBox
+              px={3}
+              py={2}
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(3, 1fr)", // Adjust the number of columns as needed
+                gridGap: "10px", // Spacing between images
+              }}
+            >
               {images.map((img, index) => (
                 <img
                   key={index}
@@ -134,7 +189,6 @@ function ImageGallery() {
                 />
               ))}
             </MKBox>
-            0
           </Card>
         </MKBox>
       </MKBox>

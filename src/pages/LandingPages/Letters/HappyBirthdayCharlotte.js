@@ -13,13 +13,22 @@ import routes from "routes";
 
 // Images
 import bgImage from "assets/images/bgimage.jpg";
+import { useEffect, useState } from "react";
 
 function HappyBirthdayCharlotte() {
+  const [imageHeight, setImageHeight] = useState(0);
+  useEffect(() => {
+    const img = new Image();
+    img.onload = () => {
+      setImageHeight(img.height);
+    };
+    img.src = bgImage;
+  }, [bgImage]);
   return (
     <>
       <DefaultNavbar routes={routes} sticky />
       <MKBox
-        minHeight="75vh"
+        minHeight={`${imageHeight}px`}
         width="100%"
         sx={{
           backgroundImage: `url(${bgImage})`,
@@ -30,12 +39,12 @@ function HappyBirthdayCharlotte() {
         }}
       >
         <MKBox
-          marginTop={15}
-          marginBottom={3}
+          marginTop={18}
+          marginBottom={0}
           display="flex"
           flexDirection="column"
           alignItems="center"
-          justifyContent="center"
+          justifyContent="flex-start"
         >
           <MKTypography
             variant="h2"
@@ -61,6 +70,7 @@ function HappyBirthdayCharlotte() {
           <Card
             sx={{
               py: 2,
+              mt: -90,
               mx: { xs: 3, lg: 2 },
               backgroundColor: "#e6d7ff",
               backdropFilter: "saturate(200%) blur(30px)",
@@ -105,7 +115,7 @@ function HappyBirthdayCharlotte() {
       </MKBox>
       <MKBox sx={{ bacgroundColor: "#f3e5cb" }}></MKBox>
       <MKBox
-        minHeight="75vh"
+        minHeight={`${imageHeight}px`}
         width="100%"
         sx={{
           backgroundImage: `url(${bgImage})`,
@@ -114,7 +124,9 @@ function HappyBirthdayCharlotte() {
           display: "grid",
           placeItems: "top",
         }}
-      ></MKBox>
+      >
+        <MKTypography variant="h2">yes</MKTypography>
+      </MKBox>
     </>
   );
 }

@@ -44,10 +44,12 @@
     "web-vitals": "3.3.1"
   },
   "scripts": {
-    "start": "craco start",
-    "build": "craco build",
-    "test": "craco test",
-    "eject": "react-scripts eject"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "lint": "eslint ./src",
+    "prettify": "prettier --write ."
   },
   "eslintConfig": {
     "extends": [

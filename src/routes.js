@@ -101,12 +101,6 @@ const routes = [
         route: "/pages/LandingPages/Letters/Proposal",
         component: <Proposal />,
       },
-      {
-        name: "components",
-      },
-      {
-        name: "plugins",
-      },
     ],
   },
 ];

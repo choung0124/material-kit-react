@@ -1,0 +1,4 @@
+.animate-image:hover {
+    transform: scale(1.1); /* Slightly increase the size on hover */
+  }
+  

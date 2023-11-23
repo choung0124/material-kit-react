@@ -467,6 +467,9 @@ function DefaultNavbar({ brand, routes, transparent, light, action, sticky, rela
           backgroundColor: transparent ? transparentColor.main : rgba(white.main, 0.8),
           backdropFilter: transparent ? "none" : `saturate(200%) blur(30px)`,
         })}
+        style={{
+          backgroundColor: "#e6d7ff",
+        }}
       >
         <MKBox display="flex" justifyContent="space-between" alignItems="center">
           <MKBox
@@ -551,7 +554,7 @@ function DefaultNavbar({ brand, routes, transparent, light, action, sticky, rela
 
 // Setting default values for the props of DefaultNavbar
 DefaultNavbar.defaultProps = {
-  brand: "Material Kit 2",
+  brand: "Charlotte <3",
   transparent: false,
   light: false,
   action: false,

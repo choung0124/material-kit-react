@@ -114,19 +114,6 @@ function HappyBirthdayCharlotte() {
         </MKBox>
       </MKBox>
       <MKBox sx={{ bacgroundColor: "#f3e5cb" }}></MKBox>
-      <MKBox
-        minHeight={`${imageHeight}px`}
-        width="100%"
-        sx={{
-          backgroundImage: `url(${bgImage})`,
-          backgroundSize: "cover",
-          backgroundPosition: "top",
-          display: "grid",
-          placeItems: "top",
-        }}
-      >
-        <MKTypography variant="h2">yes</MKTypography>
-      </MKBox>
     </>
   );
 }

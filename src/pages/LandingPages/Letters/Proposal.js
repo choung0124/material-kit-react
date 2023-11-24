@@ -116,17 +116,6 @@ function Proposal() {
         </MKBox>
       </MKBox>
       <MKBox sx={{ bacgroundColor: "#f3e5cb" }}></MKBox>
-      <MKBox
-        minHeight={`${imageHeight}px`}
-        width="100%"
-        sx={{
-          backgroundImage: `url(${bgImage})`,
-          backgroundSize: "cover",
-          backgroundPosition: "top",
-          display: "grid",
-          placeItems: "top",
-        }}
-      ></MKBox>
     </>
   );
 }

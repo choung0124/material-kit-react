@@ -37,8 +37,20 @@ import DateTrackerDating from "pages/Presentation/DateTrackerDating";
 import Gallery from "./Gallery";
 import MKTypography from "components/MKTypography";
 import { SpeechBubble } from "react-kawaii";
+import { useEffect, useState } from "react";
+import NowPlaying from "./NowPlaying";
+import NowPlayingChar from "./NowPlayingChar";
 
 function Presentation() {
+  const [imageHeight, setImageHeight] = useState(0);
+  useEffect(() => {
+    const img = new Image();
+    img.onload = () => {
+      setImageHeight(img.height);
+    };
+    img.src = bgImage;
+  }, [bgImage]);
+
   const images = [
     { id: 1, src: require("assets/images/gallery1.jpg"), alt: "Description of image 1" },
     { id: 2, src: require("assets/images/gallery2.jpg"), alt: "Description of image 2" },
@@ -50,7 +62,7 @@ function Presentation() {
     <>
       <DefaultNavbar routes={routes} sticky />
       <MKBox
-        minHeight="75vh"
+        minHeight={`${imageHeight}px`}
         width="100%"
         sx={{
           backgroundImage: `url(${bgImage})`,
@@ -62,11 +74,11 @@ function Presentation() {
       >
         <MKBox
           marginTop={20}
-          marginBottom={10}
+          marginBottom={5}
           display="flex"
           flexDirection="column"
           alignItems="center"
-          justifyContent="center"
+          justifyContent="flex-start"
         >
           <SpeechBubble color="#e6d7ff" mood="happy" size={100} />
           <MKTypography
@@ -94,6 +106,7 @@ function Presentation() {
             sx={{
               py: 2,
               mx: { xs: 3, lg: 2 },
+              mt: -90,
               backgroundColor: "#e6d7ff",
               backdropFilter: "saturate(200%) blur(30px)",
               boxShadow: ({ boxShadows: { xxl } }) => xxl,
@@ -110,20 +123,73 @@ function Presentation() {
               </Grid>
             </Container>
           </Card>
+          <MKTypography
+            variant="h5"
+            fontWeight="bold"
+            textAlign="center"
+            color="lilac"
+            sx={{
+              marginTop: 2,
+              marginBottom: 1,
+              // Multiple shadows to create the outline effect
+              textShadow: `
+      -1px -1px 0 #fff,  
+      1px -1px 0 #fff,
+      -1px 1px 0 #fff,
+      1px 1px 0 #fff
+    `,
+            }}
+          >
+            Now Playing, for Charlotte
+          </MKTypography>
+          <MKBox
+            sx={{
+              mx: { xs: 3 },
+              backgroundColor: "#e6d7ff",
+              backdropFilter: "saturate(200%) blur(30px)",
+              boxShadow: ({ boxShadows: { xxl } }) => xxl,
+              border: "2px solid white",
+              borderRadius: "16px",
+            }}
+            marginTop={0}
+          >
+            <NowPlayingChar />
+          </MKBox>
+          <MKTypography
+            variant="h5"
+            fontWeight="bold"
+            textAlign="center"
+            color="lilac"
+            sx={{
+              marginTop: 2,
+              marginBottom: 1,
+              // Multiple shadows to create the outline effect
+              textShadow: `
+      -1px -1px 0 #fff,  
+      1px -1px 0 #fff,
+      -1px 1px 0 #fff,
+      1px 1px 0 #fff
+    `,
+            }}
+          >
+            Now Playing, for Andie
+          </MKTypography>
+          <MKBox
+            sx={{
+              mx: { xs: 3 },
+              backgroundColor: "#e6d7ff",
+              backdropFilter: "saturate(200%) blur(30px)",
+              boxShadow: ({ boxShadows: { xxl } }) => xxl,
+              border: "2px solid white",
+              borderRadius: "16px",
+            }}
+            marginTop={0}
+          >
+            <NowPlaying />
+          </MKBox>
         </MKBox>
       </MKBox>
       <MKBox sx={{ bacgroundColor: "#f3e5cb" }}></MKBox>
-      <MKBox
-        minHeight="75vh"
-        width="100%"
-        sx={{
-          backgroundImage: `url(${bgImage})`,
-          backgroundSize: "cover",
-          backgroundPosition: "top",
-          display: "grid",
-          placeItems: "top",
-        }}
-      ></MKBox>
     </>
   );
 }

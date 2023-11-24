@@ -35,8 +35,15 @@ import img15 from "assets/images/gallery/BothOfUs/15.jpg";
 
 import Gallery from "./Gallery";
 
+import { Modal } from "@mui/material";
+
+import MKButton from "components/MKButton";
+
 function ImageGallery() {
   const [imageHeight, setImageHeight] = useState(0);
+  const [selectedImage, setSelectedImage] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   useEffect(() => {
     const img = new Image();
     img.onload = () => {
@@ -106,12 +113,19 @@ function ImageGallery() {
   ];
 
   const imageStyle = {
-    width: "75px",
+    width: "80px",
     maxHeight: "150px",
     objectFit: "cover",
     margin: "5px",
     transition: "transform 0.3s ease-in-out", // Animation effect
   };
+
+  const handleImageClick = (imageSrc) => {
+    setSelectedImage(imageSrc);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => setIsModalOpen(false);
 
   return (
     <>
@@ -155,7 +169,7 @@ function ImageGallery() {
             Pictures with the both of us :3
           </MKTypography>
         </MKBox>
-        <MKBox display="flex" justifyContent="center" alignItems="center">
+        <MKBox display="flex" justifyContent="center" alignItems="center" marginBottom={5}>
           <Card
             sx={{
               py: 2,
@@ -175,20 +189,47 @@ function ImageGallery() {
               py={2}
               style={{
                 display: "grid",
-                gridTemplateColumns: "repeat(3, 1fr)", // Adjust the number of columns as needed
-                gridGap: "10px", // Spacing between images
+                gridTemplateColumns: "repeat(3, 1fr)", // Two images per row
+                gridGap: "1px",
               }}
+              overflow="auto"
             >
               {images.map((img, index) => (
-                <img
+                <MKBox
                   key={index}
-                  src={img}
-                  alt={`Gallery ${index}`}
-                  style={imageStyle}
                   className="animate-image"
-                />
+                  style={{ ...imageStyle }}
+                  sx={{ border: "2px solid white" }}
+                >
+                  <img
+                    src={img}
+                    alt={`Gallery ${index}`}
+                    style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                    onClick={() => handleImageClick(img)}
+                  />
+                </MKBox>
               ))}
             </MKBox>
+            <Modal
+              open={isModalOpen}
+              onClose={handleCloseModal}
+              sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}
+            >
+              <MKBox
+                sx={{
+                  outline: "none",
+                  position: "relative",
+                  maxWidth: "90%",
+                  maxHeight: "90%",
+                  overflow: "auto",
+                }}
+              >
+                <img src={selectedImage} alt="Selected" style={{ width: "100%", height: "auto" }} />
+                <a href={selectedImage} download style={{ textDecoration: "none" }}>
+                  <MKButton>Download</MKButton>
+                </a>
+              </MKBox>
+            </Modal>
           </Card>
         </MKBox>
       </MKBox>

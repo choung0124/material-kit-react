@@ -10,10 +10,10 @@ import MKTypography from "components/MKTypography";
 //Setting up the Spotify API and Endpoints
 const NOW_PLAYING_ENDPOINT = "https://api.spotify.com/v1/me/player/currently-playing";
 const TOKEN_ENDPOINT = "https://accounts.spotify.com/api/token";
-const client_id = "c3c81787555747ea98b311ca49ddaf4e";
-const client_secret = "ecc38f94c54144fc94c90f5aa99259ce";
+const client_id = "b20d09930ecf4739949dc7a523619962";
+const client_secret = "4cfe45966b774306afd4ed3ef7eddb64";
 const refresh_token =
-  "AQAyNoJfU8BCxzpnWghThnnCDOiPwzvHXPwo_P4ERTBXXLdfaOQ3bQrrpUvFJy98gENMvtL8JznMASeZr7t431Y6SoPx0r4bObZ0WIX2DO5HFRD8fssQkR-sw9pBZ-xsZXg";
+  "AQBhUwpjEZdCC06giiHt947E1nOiiLkhBGM_Po0_ZE2G6GOUa3dpmRvVeIcG0q8rWilk7h3zya6A6C4WH9o7aV-w5RaQveR8sN0sPp_eZC-MK2hm3zxLTQ5uLlGmKo_Rd8U";
 
 //Function to generate an access token using the refresh token everytime the website is opened or refreshed
 export const getAccessToken = async (client_id, client_secret, refresh_token) => {

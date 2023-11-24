@@ -31,6 +31,8 @@ import routes from "routes";
 // Images
 import bgImage from "assets/images/bgimage.jpg";
 
+import PropTypes from "prop-types";
+
 // DateTracker
 import DateTracker from "pages/Presentation/DateTracker";
 import DateTrackerDating from "pages/Presentation/DateTrackerDating";
@@ -87,6 +89,19 @@ function Presentation() {
     setInputText(event.target.value);
   };
 
+  function VideoPlayer({ videoSrc }) {
+    return (
+      <video width="100%" height="100%" controls autoPlay loop>
+        <source src={videoSrc} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    );
+  }
+
+  VideoPlayer.propTypes = {
+    videoSrc: PropTypes.string.isRequired,
+  };
+
   return (
     <>
       <DefaultNavbar routes={routes} sticky />
@@ -137,7 +152,7 @@ function Presentation() {
             sx={{
               py: 2,
               mx: { xs: 3, lg: 2 },
-              mt: -70,
+              mt: -40,
               backgroundColor: "#e6d7ff",
               backdropFilter: "saturate(200%) blur(30px)",
               boxShadow: ({ boxShadows: { xxl } }) => xxl,
@@ -235,9 +250,44 @@ function Presentation() {
     `,
             }}
           >
-            Leave a Note !
+            Visualization of our Relationship
           </MKTypography>
           <MKBox marginTop={0}>
+            <Card
+              sx={{
+                py: 2,
+                mx: { xs: 3, lg: 2 },
+                backgroundColor: "#e6d7ff",
+                backdropFilter: "saturate(200%) blur(30px)",
+                boxShadow: ({ boxShadows: { xxl } }) => xxl,
+                border: "2px solid white",
+              }}
+            >
+              <MKBox px={3} marginTop={1}>
+                <VideoPlayer videoSrc={require("assets/videos/loop.mp4")} />
+              </MKBox>
+            </Card>
+          </MKBox>
+          <MKTypography
+            variant="h5"
+            fontWeight="bold"
+            textAlign="center"
+            color="lilac"
+            sx={{
+              marginTop: 2,
+              marginBottom: 2,
+              // Multiple shadows to create the outline effect
+              textShadow: `
+               -1px -1px 0 #fff,  
+               1px -1px 0 #fff,
+               -1px 1px 0 #fff,
+               1px 1px 0 #fff
+             `,
+            }}
+          >
+            Leave a Note !
+          </MKTypography>
+          <MKBox>
             <Card
               sx={{
                 py: 2,

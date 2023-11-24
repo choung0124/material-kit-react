@@ -37,12 +37,18 @@ import DateTrackerDating from "pages/Presentation/DateTrackerDating";
 import Gallery from "./Gallery";
 import MKTypography from "components/MKTypography";
 import { SpeechBubble } from "react-kawaii";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import NowPlaying from "./NowPlaying";
 import NowPlayingChar from "./NowPlayingChar";
+import MKInput from "components/MKInput";
+import HeartAnimation from "./animation";
 
 function Presentation() {
   const [imageHeight, setImageHeight] = useState(0);
+  const [maxWidth, setMaxWidth] = useState(0);
+  const containerRef = useRef(null);
+  const [inputText, setInputText] = useState("");
+
   useEffect(() => {
     const img = new Image();
     img.onload = () => {
@@ -51,6 +57,24 @@ function Presentation() {
     img.src = bgImage;
   }, [bgImage]);
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (containerRef.current) {
+        setMaxWidth(containerRef.current.offsetWidth - 40);
+        console.log("maxWidth", maxWidth);
+      }
+    };
+
+    // Calculate on mount
+    handleResize();
+
+    // Add event listener for window resize
+    window.addEventListener("resize", handleResize);
+
+    // Clean up
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const images = [
     { id: 1, src: require("assets/images/gallery1.jpg"), alt: "Description of image 1" },
     { id: 2, src: require("assets/images/gallery2.jpg"), alt: "Description of image 2" },
@@ -58,6 +82,11 @@ function Presentation() {
     { id: 4, src: require("assets/images/gallery4.jpg"), alt: "Description of image 2" },
     // Add more images as necessary
   ];
+
+  const handleInputChange = (event) => {
+    setInputText(event.target.value);
+  };
+
   return (
     <>
       <DefaultNavbar routes={routes} sticky />
@@ -72,6 +101,8 @@ function Presentation() {
           placeItems: "top",
         }}
       >
+        <HeartAnimation />
+
         <MKBox
           marginTop={20}
           marginBottom={5}
@@ -106,14 +137,14 @@ function Presentation() {
             sx={{
               py: 2,
               mx: { xs: 3, lg: 2 },
-              mt: -90,
+              mt: -70,
               backgroundColor: "#e6d7ff",
               backdropFilter: "saturate(200%) blur(30px)",
               boxShadow: ({ boxShadows: { xxl } }) => xxl,
               border: "2px solid white",
             }}
           >
-            <Container>
+            <Container ref={containerRef}>
               <Grid container item xs={12} lg={4} justifyContent="center" mx="auto" marginTop={0}>
                 <Gallery images={images} />
               </Grid>
@@ -187,9 +218,56 @@ function Presentation() {
           >
             <NowPlaying />
           </MKBox>
+          <MKTypography
+            variant="h5"
+            fontWeight="bold"
+            textAlign="center"
+            color="lilac"
+            sx={{
+              marginTop: 2,
+              marginBottom: 1,
+              // Multiple shadows to create the outline effect
+              textShadow: `
+      -1px -1px 0 #fff,  
+      1px -1px 0 #fff,
+      -1px 1px 0 #fff,
+      1px 1px 0 #fff
+    `,
+            }}
+          >
+            Leave a Note !
+          </MKTypography>
+          <MKBox marginTop={0}>
+            <Card
+              sx={{
+                py: 2,
+                mx: { xs: 3, lg: 2 },
+                backgroundColor: "#e6d7ff",
+                backdropFilter: "saturate(200%) blur(30px)",
+                boxShadow: ({ boxShadows: { xxl } }) => xxl,
+                border: "2px solid white",
+              }}
+            >
+              <MKBox px={3} py={2}>
+                <MKInput
+                  varint="standard"
+                  multiline
+                  rows={5}
+                  value={inputText}
+                  onChange={handleInputChange}
+                  fullWidth
+                  placeHolder="Leave a message <3"
+                  style={{ border: "2px solid white", borderRadius: "10px" }} // Add this line
+                />
+                <MKTypography variant="body2" marginBottom={1}>
+                  {inputText}
+                </MKTypography>
+              </MKBox>
+            </Card>
+          </MKBox>
         </MKBox>
       </MKBox>
-      <MKBox sx={{ bacgroundColor: "#f3e5cb" }}></MKBox>
+      <MKBox sx={{ bacgroundColor: "#f3e5cb", border: "2px solid white" }}></MKBox>
     </>
   );
 }

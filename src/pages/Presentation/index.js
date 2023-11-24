@@ -250,7 +250,7 @@ function Presentation() {
     `,
             }}
           >
-            Visualization of our Relationship
+            Visualization
           </MKTypography>
           <MKBox marginTop={0}>
             <Card
@@ -298,17 +298,21 @@ function Presentation() {
                 border: "2px solid white",
               }}
             >
-              <MKBox px={3} py={2}>
-                <MKInput
-                  varint="standard"
-                  multiline
-                  rows={5}
-                  value={inputText}
-                  onChange={handleInputChange}
-                  fullWidth
-                  placeHolder="Leave a message <3"
-                  style={{ border: "2px solid white", borderRadius: "10px" }} // Add this line
-                />
+              <MKBox px={3} py={1}>
+                <MKBox style={{ backgroundColor: "#fff", borderRadius: "10px" }}>
+                  <MKInput
+                    varint="standard"
+                    multiline
+                    rows={5}
+                    value={inputText}
+                    onChange={handleInputChange}
+                    fullWidth
+                    placeHolder="Leave a message <3"
+                    style={{
+                      bacgroundColor: "#fff",
+                    }} // Add this line
+                  />
+                </MKBox>
                 <MKTypography variant="body2" marginBottom={1}>
                   {inputText}
                 </MKTypography>

@@ -1,31 +1,31 @@
 import React from "react";
 import "./animation.css"; // Importing the CSS file
-import heart1 from "assets/images/hearts/heart_1.png";
-import heart2 from "assets/images/hearts/heart_2.png";
-import heart3 from "assets/images/hearts/heart_3.png";
-import heart4 from "assets/images/hearts/heart_4.png";
-import heart5 from "assets/images/hearts/heart_5.png";
-import heart6 from "assets/images/hearts/heart_6.png";
-import heart7 from "assets/images/hearts/heart_7.png";
-import heart8 from "assets/images/hearts/heart_8.png";
-import heart9 from "assets/images/hearts/heart_9.png";
-import heart10 from "assets/images/hearts/heart_10.png";
+import flower1 from "assets/images/flowers/flower1.png";
+import flower2 from "assets/images/flowers/flower2.png";
+import flower3 from "assets/images/flowers/flower3.png";
+import flower4 from "assets/images/flowers/flower4.png";
+import flower5 from "assets/images/flowers/flower5.png";
+import flower6 from "assets/images/flowers/flower6.png";
+import flower7 from "assets/images/flowers/flower7.png";
+import flower8 from "assets/images/flowers/flower8.png";
+import flower9 from "assets/images/flowers/flower9.png";
+import flower10 from "assets/images/flowers/flower10.png";
 
 function HeartAnimation() {
   const heartCount = 20; // Number of hearts to animate
   const hearts = [];
   const segmentCount = 5; // Divide the width into 5 segments
   const heartImages = [
-    heart1,
-    heart2,
-    heart3,
-    heart4,
-    heart5,
-    heart6,
-    heart7,
-    heart8,
-    heart9,
-    heart10,
+    flower1,
+    flower2,
+    flower3,
+    flower4,
+    flower5,
+    flower6,
+    flower7,
+    flower8,
+    flower9,
+    flower10,
   ];
 
   for (let i = 0; i < heartCount; i++) {

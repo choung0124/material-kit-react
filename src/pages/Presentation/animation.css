@@ -6,6 +6,11 @@
       transform: translateY(100vh) rotate(180deg);
     }
   }
+
+  @keyframes fall-start-mid {
+    0% { transform: translateY(50vh) rotate(90deg); }
+    100% { transform: translateY(100vh) rotate(180deg); }
+  }
   
   .heart {
     position: absolute;
@@ -19,7 +24,7 @@
   
   /* No need for nth-child anymore, as the background images are set inline in the component */
   .heart {
-    animation-duration: calc(10s + (2s * var(--n))); /* Example of randomizing duration */
+    animation-duration: calc(5s + (1s * var(--n))); /* Faster animation */
     left: calc(5% + (90% * var(--n))); /* Example of randomizing the horizontal position */
   }
   

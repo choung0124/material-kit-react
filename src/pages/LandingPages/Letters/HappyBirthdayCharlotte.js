@@ -15,6 +15,8 @@ import routes from "routes";
 import bgImage from "assets/images/bgimage.jpg";
 import { useEffect, useState } from "react";
 
+import HeartAnimation from "pages/Presentation/animation";
+
 function HappyBirthdayCharlotte() {
   const [imageHeight, setImageHeight] = useState(0);
   useEffect(() => {
@@ -46,6 +48,7 @@ function HappyBirthdayCharlotte() {
           alignItems="center"
           justifyContent="flex-start"
         >
+          <HeartAnimation />
           <MKTypography
             variant="h2"
             fontWeight="bold"

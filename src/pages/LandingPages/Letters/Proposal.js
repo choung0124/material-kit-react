@@ -14,6 +14,7 @@ import routes from "routes";
 // Images
 import bgImage from "assets/images/bgimage.jpg";
 import { useEffect, useState } from "react";
+import HeartAnimation from "pages/Presentation/animation";
 
 function Proposal() {
   const [imageHeight, setImageHeight] = useState(0);
@@ -38,6 +39,7 @@ function Proposal() {
           placeItems: "top",
         }}
       >
+        <HeartAnimation />
         <MKBox
           marginTop={18}
           marginBottom={3}

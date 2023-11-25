@@ -38,6 +38,7 @@ import Gallery from "./Gallery";
 import { Modal } from "@mui/material";
 
 import MKButton from "components/MKButton";
+import HeartAnimation from "pages/Presentation/animation";
 
 function ImageGallery() {
   const [imageHeight, setImageHeight] = useState(0);
@@ -141,6 +142,7 @@ function ImageGallery() {
           placeItems: "top",
         }}
       >
+        <HeartAnimation />
         <MKBox
           marginTop={18}
           marginBottom={0}

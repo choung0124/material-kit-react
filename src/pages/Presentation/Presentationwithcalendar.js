@@ -31,6 +31,8 @@ import routes from "routes";
 // Images
 import bgImage from "assets/images/bgimage.jpg";
 
+import PropTypes from "prop-types";
+
 // DateTracker
 import DateTracker from "pages/Presentation/DateTracker";
 import DateTrackerDating from "pages/Presentation/DateTrackerDating";
@@ -40,15 +42,20 @@ import { SpeechBubble } from "react-kawaii";
 import { useEffect, useState, useRef } from "react";
 import NowPlaying from "./NowPlaying";
 import NowPlayingChar from "./NowPlayingChar";
-
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { DateCalendar } from "@mui/x-date-pickers/DateCalendar";
+import MKInput from "components/MKInput";
+import HeartAnimation from "./animation";
+import axios from "axios";
+import MKButton from "components/MKButton";
 
 function Presentation() {
   const [imageHeight, setImageHeight] = useState(0);
   const [maxWidth, setMaxWidth] = useState(0);
   const containerRef = useRef(null);
+  const [inputText, setInputText] = useState("");
+  const [streamingResponseUrl, setStreamingResponseUrl] = useState(null);
+  const [answer, setAnswer] = useState(false);
+  const [isGenerating, setIsGenerating] = useState(false);
+  const [question, setQuestion] = useState("");
 
   useEffect(() => {
     const img = new Image();
@@ -62,6 +69,7 @@ function Presentation() {
     const handleResize = () => {
       if (containerRef.current) {
         setMaxWidth(containerRef.current.offsetWidth - 40);
+        console.log("maxWidth", maxWidth);
       }
     };
 
@@ -82,6 +90,71 @@ function Presentation() {
     { id: 4, src: require("assets/images/gallery4.jpg"), alt: "Description of image 2" },
     // Add more images as necessary
   ];
+
+  function VideoPlayer({ videoSrc }) {
+    return (
+      <video width="100%" height="100%" controls autoPlay loop>
+        <source src={videoSrc} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    );
+  }
+
+  VideoPlayer.propTypes = {
+    videoSrc: PropTypes.string.isRequired,
+  };
+
+  const askQuestion = async (question) => {
+    try {
+      const response = await axios.post("http://192.168.219.107:8000/question/", {
+        question: question,
+      });
+      setStreamingResponseUrl(response.data.url);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const getStreamingResponse = async () => {
+    try {
+      const response = await fetch(streamingResponseUrl);
+
+      if (response.body) {
+        const reader = response.body.getReader();
+        const decoder = new TextDecoder();
+        let content = "";
+        // eslint-disable-next-line no-constant-condition
+        while (true) {
+          const { value, done } = await reader.read();
+          if (done) break;
+
+          content += decoder.decode(value, { stream: true });
+          setAnswer(content);
+        }
+        setAnswer((prev) => prev + decoder.decode());
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    const processQuestion = async () => {
+      if (question && !isGenerating) {
+        setIsGenerating(true);
+        await askQuestion(question);
+        setIsGenerating(false);
+      }
+    };
+    processQuestion();
+  }, [question]);
+
+  useEffect(() => {
+    if (streamingResponseUrl) {
+      getStreamingResponse();
+    }
+  }, [streamingResponseUrl]);
+
   return (
     <>
       <DefaultNavbar routes={routes} sticky />
@@ -96,6 +169,8 @@ function Presentation() {
           placeItems: "top",
         }}
       >
+        <HeartAnimation />
+
         <MKBox
           marginTop={20}
           marginBottom={5}
@@ -130,7 +205,7 @@ function Presentation() {
             sx={{
               py: 2,
               mx: { xs: 3, lg: 2 },
-              mt: -60,
+              mt: -40,
               backgroundColor: "#e6d7ff",
               backdropFilter: "saturate(200%) blur(30px)",
               boxShadow: ({ boxShadows: { xxl } }) => xxl,
@@ -144,35 +219,6 @@ function Presentation() {
               <Grid container item xs={12} lg={4} justifyContent="center" mx="auto" marginTop={2}>
                 <DateTrackerDating startDate="2023-04-16T21:00:00" />
                 <DateTracker startDate="2023-11-21T20:17:00" />
-              </Grid>
-              <Grid container item xs={12} lg={4} justifyContent="center" mx="auto" marginTop={0}>
-                <LocalizationProvider dateAdapter={AdapterDayjs}>
-                  <DateCalendar
-                    sx={(theme) => ({
-                      heigh: "auto",
-                      maxWidth: `${maxWidth}px`,
-                      ".MuiPickersCalendarHeader-labelContainer": {
-                        justifyContent: "flex-start",
-                        [theme.breakpoints.down("sm")]: {
-                          // Additional styles for mobile screens
-                          justifyContent: "center", // Adjusts the position for mobile
-                        },
-                      },
-                      ".MuiPickersCalendarHeader-label": {
-                        fontSize: "1rem",
-                        textAlign: "left",
-                        [theme.breakpoints.down("sm")]: {
-                          // Additional styles for mobile screens
-                          textAlign: "center", // Aligns the text to the center for mobile
-                        },
-                      },
-                      ".MuiYearCalendar-root": {
-                        maxWidth: `${maxWidth}px`,
-                        height: "inherit",
-                      },
-                    })}
-                  />
-                </LocalizationProvider>
               </Grid>
             </Container>
           </Card>
@@ -240,9 +286,99 @@ function Presentation() {
           >
             <NowPlaying />
           </MKBox>
+          <MKTypography
+            variant="h5"
+            fontWeight="bold"
+            textAlign="center"
+            color="lilac"
+            sx={{
+              marginTop: 2,
+              marginBottom: 1,
+              // Multiple shadows to create the outline effect
+              textShadow: `
+      -1px -1px 0 #fff,  
+      1px -1px 0 #fff,
+      -1px 1px 0 #fff,
+      1px 1px 0 #fff
+    `,
+            }}
+          >
+            Visualization
+          </MKTypography>
+          <MKBox marginTop={0}>
+            <Card
+              sx={{
+                py: 2,
+                mx: { xs: 3, lg: 2 },
+                backgroundColor: "#e6d7ff",
+                backdropFilter: "saturate(200%) blur(30px)",
+                boxShadow: ({ boxShadows: { xxl } }) => xxl,
+                border: "2px solid white",
+              }}
+            >
+              <MKBox px={3} marginTop={1}>
+                <VideoPlayer videoSrc={require("assets/videos/loop.mp4")} />
+              </MKBox>
+            </Card>
+          </MKBox>
+          <MKTypography
+            variant="h5"
+            fontWeight="bold"
+            textAlign="center"
+            color="lilac"
+            sx={{
+              marginTop: 2,
+              marginBottom: 2,
+              // Multiple shadows to create the outline effect
+              textShadow: `
+               -1px -1px 0 #fff,  
+               1px -1px 0 #fff,
+               -1px 1px 0 #fff,
+               1px 1px 0 #fff
+             `,
+            }}
+          >
+            Ask a question about us !
+          </MKTypography>
+          <MKBox>
+            <Card
+              sx={{
+                py: 2,
+                mx: { xs: 3, lg: 2 },
+                backgroundColor: "#e6d7ff",
+                backdropFilter: "saturate(200%) blur(30px)",
+                boxShadow: ({ boxShadows: { xxl } }) => xxl,
+                border: "2px solid white",
+              }}
+            >
+              <MKBox px={3} py={1}>
+                <MKBox style={{ backgroundColor: "#fff", borderRadius: "10px" }}>
+                  <MKInput
+                    varint="standard"
+                    multiline
+                    value={inputText}
+                    fullWidth
+                    style={{
+                      bacgroundColor: "#fff",
+                    }} // Add this line
+                    onChange={(e) => setInputText(e.target.value)}
+                    onKeyPress={(event) => {
+                      if (event.key === "Enter") {
+                        setQuestion(inputText);
+                      }
+                    }}
+                  />
+                </MKBox>
+                <MKButton onClick={() => setQuestion(inputText)}>Ask</MKButton>
+                <MKTypography variant="body2" marginBottom={1}>
+                  {answer}
+                </MKTypography>
+              </MKBox>
+            </Card>
+          </MKBox>
         </MKBox>
       </MKBox>
-      <MKBox sx={{ bacgroundColor: "#f3e5cb" }}></MKBox>
+      <MKBox sx={{ bacgroundColor: "#f3e5cb", border: "2px solid white" }}></MKBox>
     </>
   );
 }

@@ -11,7 +11,7 @@ import flower8 from "assets/images/flowers/flower8.png";
 import flower9 from "assets/images/flowers/flower9.png";
 import flower10 from "assets/images/flowers/flower10.png";
 
-function HeartAnimation() {
+const HeartAnimation = React.memo(function HeartAnimation() {
   const heartCount = 20; // Number of hearts to animate
   const hearts = [];
   const segmentCount = 5; // Divide the width into 5 segments
@@ -45,5 +45,5 @@ function HeartAnimation() {
   }
 
   return <div className="heart-container">{hearts}</div>;
-}
+});
 export default HeartAnimation;

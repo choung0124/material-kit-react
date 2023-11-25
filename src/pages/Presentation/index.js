@@ -44,12 +44,18 @@ import NowPlaying from "./NowPlaying";
 import NowPlayingChar from "./NowPlayingChar";
 import MKInput from "components/MKInput";
 import HeartAnimation from "./animation";
+import axios from "axios";
+import MKButton from "components/MKButton";
 
 function Presentation() {
   const [imageHeight, setImageHeight] = useState(0);
   const [maxWidth, setMaxWidth] = useState(0);
   const containerRef = useRef(null);
   const [inputText, setInputText] = useState("");
+  const [streamingResponseUrl, setStreamingResponseUrl] = useState(null);
+  const [answer, setAnswer] = useState(false);
+  const [isGenerating, setIsGenerating] = useState(false);
+  const [question, setQuestion] = useState("");
 
   useEffect(() => {
     const img = new Image();
@@ -85,10 +91,6 @@ function Presentation() {
     // Add more images as necessary
   ];
 
-  const handleInputChange = (event) => {
-    setInputText(event.target.value);
-  };
-
   function VideoPlayer({ videoSrc }) {
     return (
       <video width="100%" height="100%" controls autoPlay loop>
@@ -101,6 +103,60 @@ function Presentation() {
   VideoPlayer.propTypes = {
     videoSrc: PropTypes.string.isRequired,
   };
+
+  const askQuestion = async (question) => {
+    try {
+      const response = await axios.post(
+        "http://boot-plant-description-hits.trycloudflare.com/question/",
+        {
+          question: question,
+        }
+      );
+      setStreamingResponseUrl(response.data.url);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const getStreamingResponse = async () => {
+    try {
+      const response = await fetch(streamingResponseUrl);
+
+      if (response.body) {
+        const reader = response.body.getReader();
+        const decoder = new TextDecoder();
+        let content = "";
+        // eslint-disable-next-line no-constant-condition
+        while (true) {
+          const { value, done } = await reader.read();
+          if (done) break;
+
+          content += decoder.decode(value, { stream: true });
+          setAnswer(content);
+        }
+        setAnswer((prev) => prev + decoder.decode());
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    const processQuestion = async () => {
+      if (question && !isGenerating) {
+        setIsGenerating(true);
+        await askQuestion(question);
+        setIsGenerating(false);
+      }
+    };
+    processQuestion();
+  }, [question]);
+
+  useEffect(() => {
+    if (streamingResponseUrl) {
+      getStreamingResponse();
+    }
+  }, [streamingResponseUrl]);
 
   return (
     <>
@@ -152,7 +208,7 @@ function Presentation() {
             sx={{
               py: 2,
               mx: { xs: 3, lg: 2 },
-              mt: -40,
+              mt: -70,
               backgroundColor: "#e6d7ff",
               backdropFilter: "saturate(200%) blur(30px)",
               boxShadow: ({ boxShadows: { xxl } }) => xxl,
@@ -240,41 +296,6 @@ function Presentation() {
             color="lilac"
             sx={{
               marginTop: 2,
-              marginBottom: 1,
-              // Multiple shadows to create the outline effect
-              textShadow: `
-      -1px -1px 0 #fff,  
-      1px -1px 0 #fff,
-      -1px 1px 0 #fff,
-      1px 1px 0 #fff
-    `,
-            }}
-          >
-            Visualization
-          </MKTypography>
-          <MKBox marginTop={0}>
-            <Card
-              sx={{
-                py: 2,
-                mx: { xs: 3, lg: 2 },
-                backgroundColor: "#e6d7ff",
-                backdropFilter: "saturate(200%) blur(30px)",
-                boxShadow: ({ boxShadows: { xxl } }) => xxl,
-                border: "2px solid white",
-              }}
-            >
-              <MKBox px={3} marginTop={1}>
-                <VideoPlayer videoSrc={require("assets/videos/loop.mp4")} />
-              </MKBox>
-            </Card>
-          </MKBox>
-          <MKTypography
-            variant="h5"
-            fontWeight="bold"
-            textAlign="center"
-            color="lilac"
-            sx={{
-              marginTop: 2,
               marginBottom: 2,
               // Multiple shadows to create the outline effect
               textShadow: `
@@ -285,7 +306,7 @@ function Presentation() {
              `,
             }}
           >
-            Leave a Note !
+            Ask a question about us !
           </MKTypography>
           <MKBox>
             <Card
@@ -299,23 +320,31 @@ function Presentation() {
               }}
             >
               <MKBox px={3} py={1}>
-                <MKBox style={{ backgroundColor: "#fff", borderRadius: "10px" }}>
+                <MKBox display="flex" style={{ backgroundColor: "#fff", borderRadius: "10px" }}>
                   <MKInput
                     varint="standard"
                     multiline
-                    rows={5}
                     value={inputText}
-                    onChange={handleInputChange}
                     fullWidth
-                    placeHolder="Leave a message <3"
                     style={{
                       bacgroundColor: "#fff",
                     }} // Add this line
+                    onChange={(e) => setInputText(e.target.value)}
+                    onKeyPress={(event) => {
+                      if (event.key === "Enter") {
+                        setQuestion(inputText);
+                      }
+                    }}
                   />
                 </MKBox>
-                <MKTypography variant="body2" marginBottom={1}>
-                  {inputText}
-                </MKTypography>
+                <MKBox marginTop={2} display="flex" alignItems="center" justifyContent="center">
+                  <MKButton onClick={() => setQuestion(inputText)}>Ask Away !</MKButton>
+                </MKBox>
+                <MKBox marginTop={2}>
+                  <MKTypography variant="body2" marginBottom={1}>
+                    {answer}
+                  </MKTypography>
+                </MKBox>
               </MKBox>
             </Card>
           </MKBox>

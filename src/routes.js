@@ -48,6 +48,7 @@ import HappyBirthdayAndieKorean from "pages/LandingPages/Letters/HappyBirthdayAn
 import HappyBirthdayAndieEnglishPart1 from "pages/LandingPages/Letters/HappyBirthdayAndie/HappyBirthdayAndieEnglishPart1";
 import HappyBirthdayAndieEnglishPart2 from "pages/LandingPages/Letters/HappyBirthdayAndie/HappyBirthdayAndieEnglishPart2";
 import LetterFromWork from "pages/LandingPages/Letters/HappyBirthdayAndie/LetterFromWork";
+import TodoList from "pages/LandingPages/TodoList/TodoList";
 // @mui icons
 
 // Sections
@@ -133,6 +134,14 @@ const routes = [
         ],
       },
     ],
+  },
+  {
+    name: "To-do list",
+    icon: <Icon>list</Icon>,
+    columns: 1,
+    rowsPerColumn: 2,
+    route: "/pages/LandingPages/ToDoList",
+    component: <TodoList />,
   },
 ];
 

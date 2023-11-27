@@ -44,6 +44,9 @@ import Andie from "pages/LandingPages/Gallery/Us/Andie";
 import Mari from "pages/LandingPages/Gallery/Catzzz/Mari";
 import HappyBirthdayCharlotte from "pages/LandingPages/Letters/HappyBirthdayCharlotte";
 import Proposal from "pages/LandingPages/Letters/Proposal";
+import HappyBirthdayAndieKorean from "pages/LandingPages/Letters/HappyBirthdayAndie/HappyBirthdayAndieKorean";
+import HappyBirthdayAndieEnglishPart1 from "pages/LandingPages/Letters/HappyBirthdayAndie/HappyBirthdayAndieEnglishPart1";
+import HappyBirthdayAndieEnglishPart2 from "pages/LandingPages/Letters/HappyBirthdayAndie/HappyBirthdayAndieEnglishPart2";
 // @mui icons
 
 // Sections
@@ -90,6 +93,8 @@ const routes = [
   {
     name: "Letters",
     icon: <Icon>article</Icon>,
+    columns: 1,
+    rowsPerColumn: 2,
     collapse: [
       {
         name: "Happy Birthday Charlotte",
@@ -100,6 +105,26 @@ const routes = [
         name: "Proposal",
         route: "/pages/LandingPages/Letters/Proposal",
         component: <Proposal />,
+      },
+      {
+        name: "Happy Birthday Andie",
+        collapse: [
+          {
+            name: "Korean",
+            route: "/pages/LandingPages/Letters/HappyBirthdayAndieKorean",
+            component: <HappyBirthdayAndieKorean />,
+          },
+          {
+            name: "English",
+            route: "/pages/LandingPages/Letters/HappyBirthdayAndieEnglishPart1",
+            component: <HappyBirthdayAndieEnglishPart1 />,
+          },
+          {
+            name: "English Part 2",
+            route: "/pages/LandingPages/Letters/HappyBirthdayAndieEnglishPart2",
+            component: <HappyBirthdayAndieEnglishPart2 />,
+          },
+        ],
       },
     ],
   },

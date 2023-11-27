@@ -177,7 +177,7 @@ function Presentation() {
 
         <MKBox
           marginTop={20}
-          marginBottom={5}
+          marginBottom={0}
           display="flex"
           flexDirection="column"
           alignItems="center"
@@ -191,7 +191,7 @@ function Presentation() {
             color="lilac"
             sx={{
               marginTop: 0,
-              marginBottom: 3,
+              marginBottom: 0,
               // Multiple shadows to create the outline effect
               textShadow: `
       -1px -1px 0 #fff,  
@@ -209,7 +209,6 @@ function Presentation() {
             sx={{
               py: 2,
               mx: { xs: 3, lg: 2 },
-              mt: -60,
               backgroundColor: "#e6d7ff",
               backdropFilter: "saturate(200%) blur(30px)",
               boxShadow: ({ boxShadows: { xxl } }) => xxl,
@@ -382,7 +381,12 @@ function Presentation() {
                 <MKBox marginTop={2} display="flex" alignItems="center" justifyContent="center">
                   <MKButton onClick={() => setQuestion(inputText)}>Ask Away !</MKButton>
                 </MKBox>
-                <MKBox marginTop={2}>
+                <MKBox
+                  marginTop={2}
+                  height="30vh"
+                  overflow="auto"
+                  sx={{ border: "2px solid white", borderRadius: "10px", backgroundColor: "#fff" }}
+                >
                   <MKTypography variant="body2" marginBottom={1}>
                     {answer}
                   </MKTypography>

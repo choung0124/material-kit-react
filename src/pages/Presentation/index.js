@@ -46,6 +46,7 @@ import MKInput from "components/MKInput";
 import HeartAnimation from "./animation";
 import axios from "axios";
 import MKButton from "components/MKButton";
+import HeartComponent from "./CharlotteCode";
 
 function Presentation() {
   const [imageHeight, setImageHeight] = useState(0);
@@ -208,7 +209,7 @@ function Presentation() {
             sx={{
               py: 2,
               mx: { xs: 3, lg: 2 },
-              mt: -70,
+              mt: -60,
               backgroundColor: "#e6d7ff",
               backdropFilter: "saturate(200%) blur(30px)",
               boxShadow: ({ boxShadows: { xxl } }) => xxl,
@@ -225,6 +226,47 @@ function Presentation() {
               </Grid>
             </Container>
           </Card>
+          <MKTypography
+            variant="h5"
+            fontWeight="bold"
+            textAlign="center"
+            color="lilac"
+            sx={{
+              marginTop: 2,
+              marginBottom: 1,
+              // Multiple shadows to create the outline effect
+              textShadow: `
+      -1px -1px 0 #fff,  
+      1px -1px 0 #fff,
+      -1px 1px 0 #fff,
+      1px 1px 0 #fff
+    `,
+            }}
+          >
+            Code that Charlotte made !
+          </MKTypography>
+          <MKBox>
+            <Card
+              sx={{
+                py: 2,
+                mx: { xs: 3, lg: 2 },
+                backgroundColor: "#e6d7ff",
+                backdropFilter: "saturate(200%) blur(30px)",
+                boxShadow: ({ boxShadows: { xxl } }) => xxl,
+                border: "2px solid white",
+              }}
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+            >
+              <MKBox
+                sx={{ backgroundColor: "#fff", border: "2px solid white", borderRadius: "10px" }}
+                style={{ marginRight: "1rem", marginLeft: "1rem" }}
+              >
+                <HeartComponent />
+              </MKBox>
+            </Card>
+          </MKBox>
           <MKTypography
             variant="h5"
             fontWeight="bold"

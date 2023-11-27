@@ -47,6 +47,7 @@ import Proposal from "pages/LandingPages/Letters/Proposal";
 import HappyBirthdayAndieKorean from "pages/LandingPages/Letters/HappyBirthdayAndie/HappyBirthdayAndieKorean";
 import HappyBirthdayAndieEnglishPart1 from "pages/LandingPages/Letters/HappyBirthdayAndie/HappyBirthdayAndieEnglishPart1";
 import HappyBirthdayAndieEnglishPart2 from "pages/LandingPages/Letters/HappyBirthdayAndie/HappyBirthdayAndieEnglishPart2";
+import LetterFromWork from "pages/LandingPages/Letters/HappyBirthdayAndie/LetterFromWork";
 // @mui icons
 
 // Sections
@@ -123,6 +124,11 @@ const routes = [
             name: "English Part 2",
             route: "/pages/LandingPages/Letters/HappyBirthdayAndieEnglishPart2",
             component: <HappyBirthdayAndieEnglishPart2 />,
+          },
+          {
+            name: "Letter from work",
+            route: "/pages/LandingPages/Letters/HappyBirthdayAndie/LetterFromWork",
+            component: <LetterFromWork />,
           },
         ],
       },

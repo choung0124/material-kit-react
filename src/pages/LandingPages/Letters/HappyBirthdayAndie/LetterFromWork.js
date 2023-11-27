@@ -19,7 +19,7 @@ import HeartAnimation from "pages/Presentation/animation";
 
 import FavoriteIcon from "@mui/icons-material/Favorite";
 
-function HappyBirthdayAndieEnglishPart3() {
+function LetterFromWork() {
   const [imageHeight, setImageHeight] = useState(0);
   useEffect(() => {
     const img = new Image();
@@ -68,7 +68,7 @@ function HappyBirthdayAndieEnglishPart3() {
     `,
             }}
           >
-            Happy Birthday Andie(English) :3
+            Letter From Work :3
           </MKTypography>
         </MKBox>
         <MKBox>
@@ -85,77 +85,49 @@ function HappyBirthdayAndieEnglishPart3() {
           >
             <MKBox px={3} py={2}>
               <MKTypography variant="body2" marginBottom={1}>
-                I&apos;m continuously looking forward and counting the days till the weekend so I
-                can see you.
+                Your first Monday after your birthday !
               </MKTypography>
               <MKTypography variant="body2" marginBottom={1}>
-                I don&apos;t care about how far away you are, what hour it is, or the circumstances
-                you are in; I still want to see you.
+                I wish I could be there with you...
               </MKTypography>
               <MKTypography variant="body2" marginBottom={1}>
-                Being with you fills my entire body and heart <FavoriteIcon />.
+                But instead of me, I&apos;m giving you this gift.
               </MKTypography>
               <MKTypography variant="body2" marginBottom={1}>
-                I can say you are one of my major inspirations right now.
+                This is the mini version of the calendar for your desk as well as a cute pen that
+                matches you.
               </MKTypography>
               <MKTypography variant="body2" marginBottom={1}>
-                I view you as somone who motivates me to improve myself.
+                I wanted to say in here how happy I am to have you.
               </MKTypography>
               <MKTypography variant="body2" marginBottom={1}>
-                I aspire to be like you one day, hardworking, kind and a beautiful person.
+                I am really lucky to have you.
               </MKTypography>
               <MKTypography variant="body2" marginBottom={1}>
-                But I also want to me someone who is worthy of you.
+                I wish one day I can be on your your frist mondays after every of one of your
+                birthdays.
               </MKTypography>
               <MKTypography variant="body2" marginBottom={1}>
-                You motivate me to become a better version of myself so that, one day, I can give
-                everything you need.
+                I hope the world gives you the best oppurtunities and people.
               </MKTypography>
               <MKTypography variant="body2" marginBottom={1}>
-                I consider myself extremely fortunate to have you in my life, as does everyone else.
+                I want you to always have the best.
               </MKTypography>
               <MKTypography variant="body2" marginBottom={1}>
-                Your friends, relatives and even coworkers are blessed too.
+                You are the most beautiful person I meet here, and (if I can say it) in my life.
               </MKTypography>
               <MKTypography variant="body2" marginBottom={1}>
-                Everyone who meets you says the same thing: &quot;She is simply too good, kind and
-                pretty.&quot;
+                Keep with you hard work and remember that you are loved, not only because of the
+                actions you make but how lovely you are.
               </MKTypography>
               <MKTypography variant="body2" marginBottom={1}>
-                And I agree with them.
+                Hope for the best start of the week.
               </MKTypography>
               <MKTypography variant="body2" marginBottom={1}>
-                I know that others are as proud as I am of yourself.
+                Love you ! <FavoriteIcon />
               </MKTypography>
               <MKTypography variant="body2" marginBottom={1}>
-                I&apos;m sure your grandfather will be happy and glad of how far you came.
-              </MKTypography>
-              <MKTypography variant="body2" marginBottom={1}>
-                I know it may be too soon to say it, but, if I can stay for a long time with you;
-                I&apos;d like to be a family one day...
-              </MKTypography>
-              <MKTypography variant="body2" marginBottom={1}>
-                With the goal of being together for a long time, I want to be there for all of your
-                birthdays, christmas, new years, as well as for all of your acheivements in your
-                life.
-              </MKTypography>
-              <MKTypography variant="body2" marginBottom={1}>
-                I want to with you and love you completely.
-              </MKTypography>
-              <MKTypography variant="body2" marginBottom={1}>
-                I wish you the best things and happiness for today, next days and years to come.
-              </MKTypography>
-              <MKTypography variant="body2" marginBottom={1}>
-                I will do alll in my power to ensure that you have it.
-              </MKTypography>
-              <MKTypography variant="body2" marginBottom={1}>
-                You are the best present I have every received.
-              </MKTypography>
-              <MKTypography variant="body2" marginBottom={1}>
-                And the present I want to offer you today is a promise that I will always love you.
-              </MKTypography>
-              <MKTypography variant="body2" marginBottom={1}>
-                Charlotte <FavoriteIcon />
+                -Charlotte
               </MKTypography>
             </MKBox>
           </Card>
@@ -166,4 +138,4 @@ function HappyBirthdayAndieEnglishPart3() {
   );
 }
 
-export default HappyBirthdayAndieEnglishPart2;
+export default LetterFromWork;

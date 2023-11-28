@@ -17,6 +17,7 @@ Coded by www.creative-tim.com
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
+import OpenInFullIcon from "@mui/icons-material/OpenInFull";
 
 // Material Kit 2 React components
 import MKBox from "components/MKBox";
@@ -47,6 +48,10 @@ import HeartAnimation from "./animation";
 import axios from "axios";
 import MKButton from "components/MKButton";
 import HeartComponent from "./CharlotteCode";
+import GraphData from "./data";
+import OurVis from "./Network";
+import { Modal, Slide } from "@mui/material";
+import OurVisText from "./NetworkText";
 
 function Presentation() {
   const [imageHeight, setImageHeight] = useState(0);
@@ -57,6 +62,9 @@ function Presentation() {
   const [answer, setAnswer] = useState(false);
   const [isGenerating, setIsGenerating] = useState(false);
   const [question, setQuestion] = useState("");
+  const [showModal, setShowModal] = useState(false);
+  const toggleModal = () => setShowModal(!showModal);
+  const [modalSize, setModalSize] = useState({ width: 0, height: 0 });
 
   useEffect(() => {
     const img = new Image();
@@ -65,6 +73,24 @@ function Presentation() {
     };
     img.src = bgImage;
   }, [bgImage]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (containerRef.current) {
+        setModalSize({
+          width: containerRef.current.clientWidth,
+          height: containerRef.current.clientHeight,
+        });
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize(); // Initial sizing
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   useEffect(() => {
     const handleResize = () => {
@@ -276,6 +302,92 @@ function Presentation() {
               marginBottom: 1,
               // Multiple shadows to create the outline effect
               textShadow: `
+              -1px -1px 0 #fff,  
+              1px -1px 0 #fff,
+              -1px 1px 0 #fff,
+              1px 1px 0 #fff
+            `,
+              marginLeft: "1rem",
+              marginRight: "1rem",
+            }}
+          >
+            We are connected on so many different levels :)
+          </MKTypography>
+          <MKBox>
+            <Card
+              sx={{
+                py: 2,
+                mx: { xs: 3, lg: 2 },
+                backgroundColor: "#e6d7ff",
+                backdropFilter: "saturate(200%) blur(30px)",
+                boxShadow: ({ boxShadows: { xxl } }) => xxl,
+                border: "2px solid white",
+              }}
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+            >
+              <MKBox
+                sx={{
+                  backgroundColor: "#fff",
+                  border: "2px solid white",
+                  borderRadius: "10px",
+                  position: "relative", // Add this line
+                }}
+                style={{ marginRight: "1rem", marginLeft: "1rem" }}
+              >
+                <OurVis data={GraphData} />
+                <OpenInFullIcon
+                  style={{
+                    position: "absolute", // Position the icon absolutely
+                    top: 8, // Adjust top as per requirement
+                    right: 8, // Adjust right as per requirement
+                  }}
+                  onClick={toggleModal}
+                />
+              </MKBox>
+            </Card>
+            <Modal
+              open={showModal}
+              onClose={toggleModal}
+              sx={{ display: "grid", placeItems: "center" }}
+            >
+              <Slide direction="down" in={showModal}>
+                <MKBox
+                  alignItems="center"
+                  justifyContent="center"
+                  sx={{
+                    backgroundColor: "#fff",
+                    border: "2px solid white",
+                    borderRadius: "10px",
+                    position: "relative",
+                    outline: "none",
+                    // Default modal size
+                    width: "90%",
+                    height: "60%",
+                    // Responsive styling for landscape mode
+                    "@media (orientation: landscape)": {
+                      width: "90%",
+                      height: "80vh",
+                    },
+                  }}
+                  style={{ marginRight: "1rem", marginLeft: "1rem" }}
+                >
+                  <OurVisText data={GraphData} width={modalSize.width} height={modalSize.height} />
+                </MKBox>
+              </Slide>
+            </Modal>
+          </MKBox>
+          <MKTypography
+            variant="h5"
+            fontWeight="bold"
+            textAlign="center"
+            color="lilac"
+            sx={{
+              marginTop: 2,
+              marginBottom: 1,
+              // Multiple shadows to create the outline effect
+              textShadow: `
       -1px -1px 0 #fff,  
       1px -1px 0 #fff,
       -1px 1px 0 #fff,
@@ -383,11 +495,11 @@ function Presentation() {
                 </MKBox>
                 <MKBox
                   marginTop={2}
-                  height="30vh"
+                  height="20vh"
                   overflow="auto"
                   sx={{ border: "2px solid white", borderRadius: "10px", backgroundColor: "#fff" }}
                 >
-                  <MKTypography variant="body2" marginBottom={1}>
+                  <MKTypography variant="body2" marginBottom={1} p={2}>
                     {answer}
                   </MKTypography>
                 </MKBox>

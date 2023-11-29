@@ -69,7 +69,7 @@ function MKAlert({ color, dismissible, children, ...rest }) {
 
 // Setting default values for the props of MKAlert
 MKAlert.defaultProps = {
-  color: "info",
+  color: "lilac",
   dismissible: false,
 };
 
@@ -84,6 +84,7 @@ MKAlert.propTypes = {
     "error",
     "light",
     "dark",
+    "lilac",
   ]),
   dismissible: PropTypes.bool,
   children: PropTypes.node.isRequired,

@@ -39,8 +39,8 @@ export default {
   },
 
   lilac: {
-    main: "#b39ddb",
-    focus: "#9575cd",
+    main: "#e6d7ff",
+    focus: "#e6d7ff",
   },
 
   black: {
@@ -140,6 +140,10 @@ export default {
     dark: {
       main: "#42424a",
       state: "#191919",
+    },
+    lilac: {
+      main: "#e6d7ff",
+      state: "#e6d7ff",
     },
   },
 
@@ -244,6 +248,10 @@ export default {
     dark: {
       background: "#8097bf",
       text: "#1e2e4a",
+    },
+    lilac: {
+      main: "#e6d7ff",
+      text: "#e6d7ff",
     },
   },
 

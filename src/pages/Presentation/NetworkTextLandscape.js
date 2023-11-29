@@ -2,8 +2,10 @@ import * as d3 from "d3";
 import { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 
-const OurVis = ({ data }) => {
+const OurVisTextLandscape = ({ data, width, height }) => {
   const svgRef = useRef(null);
+  const simulation = useRef(null); // Define simulation with useRef
+  const containerRef = useRef(null);
 
   useEffect(() => {
     if (!svgRef.current) return;
@@ -12,12 +14,22 @@ const OurVis = ({ data }) => {
     const width = container.clientWidth;
     const height = container.clientHeight;
 
+    const zoomLevel = 2.5; // Example zoom level (2x)
+    const centerX = width / 2;
+    const centerY = height / 2;
+    const zoomedWidth = width / zoomLevel;
+    const zoomedHeight = height / zoomLevel;
+
     const svg = d3
       .select(svgRef.current)
-      .attr("width", "100%")
-      .attr("height", "100%")
-      .attr("viewBox", [0, 0, width, height]) // Adjust the viewBox to match the aspect ratio of the SVG container
-      .attr("style", "max-width: 100%; height: auto; background-color: none;");
+      .attr("width", width)
+      .attr("height", height)
+      .attr("viewBox", [
+        centerX - zoomedWidth / 2,
+        centerY - zoomedHeight / 2,
+        zoomedWidth,
+        zoomedHeight,
+      ]);
     // Clear the SVG container
     svg.selectAll("*").remove();
 
@@ -61,7 +73,7 @@ const OurVis = ({ data }) => {
 
     // Reheat the simulation when drag starts, and fix the subject position.
     function dragstarted(event) {
-      if (!event.active) simulation.alphaTarget(0.3).restart();
+      if (!event.active) simulation.current.alphaTarget(0.3).restart();
       event.subject.fx = event.subject.x;
       event.subject.fy = event.subject.y;
     }
@@ -75,12 +87,12 @@ const OurVis = ({ data }) => {
     // Restore the target alpha so the simulation cools after dragging ends.
     // Unfix the subject position now that it’s no longer being dragged.
     function dragended(event) {
-      if (!event.active) simulation.alphaTarget(0);
+      if (!event.active) simulation.current.alphaTarget(0);
       event.subject.fx = null;
       event.subject.fy = null;
     }
 
-    const simulation = d3
+    simulation.current = d3
       .forceSimulation(nodes)
       .force(
         "link",
@@ -107,13 +119,40 @@ const OurVis = ({ data }) => {
         .attr("x", (d) => (d.id === "Andie" || d.id === "Charlotte" ? d.x + 7 : d.x + 5)) // Different positioning for Andie and Charlotte
         .attr("y", (d) => (d.id === "Andie" || d.id === "Charlotte" ? d.y + 7 : d.y + 5));
     }
-  }, [data]); // re-run effect when data changes
+  }, [data, width, height]); // Add width and height as dependencies
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (svgRef.current && containerRef.current) {
+        const newWidth = containerRef.current.clientWidth;
+        const newHeight = containerRef.current.clientHeight;
+
+        // Update the SVG dimensions
+        d3.select(svgRef.current)
+          .attr("width", newWidth)
+          .attr("height", newHeight)
+          .attr("viewBox", [0, 0, newWidth, newHeight]);
+
+        // Update the simulation center force
+        simulation.current.force("center", d3.forceCenter(newWidth / 2, newHeight / 2));
+        simulation.current.alpha(1).restart(); // Restart the simulation with the new center
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    // Call handleResize initially to set the correct dimensions
+    handleResize();
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []); // Empty dependency array
 
   return <svg ref={svgRef}></svg>;
 };
 
-export default OurVis;
+export default OurVisTextLandscape;
 
-OurVis.propTypes = {
+OurVisTextLandscape.propTypes = {
   data: PropTypes.object.isRequired,
+  width: PropTypes.number.isRequired,
+  height: PropTypes.number.isRequired,
 };

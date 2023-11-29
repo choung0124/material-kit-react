@@ -141,6 +141,10 @@ export default {
       main: "#42424a",
       state: "#191919",
     },
+    lilac: {
+      main: "#b39ddb",
+      state: "#9575cd",
+    },
   },
 
   socialMediaColors: {
@@ -244,6 +248,10 @@ export default {
     dark: {
       background: "#8097bf",
       text: "#1e2e4a",
+    },
+    lilac: {
+      main: "#b39ddb",
+      text: "#9575cd",
     },
   },
 

@@ -1,18 +1,3 @@
-/*
-=========================================================
-* Material Kit 2 React - v2.1.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-kit-react
-* Copyright 2023 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
-
 // @mui material components
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
@@ -52,10 +37,30 @@ import GraphData from "./data";
 import OurVis from "./Network";
 import { Modal, Slide } from "@mui/material";
 import OurVisText from "./NetworkText";
+import OurVisTextLandscape from "./NetworkTextLandscape";
+import MKAlert from "components/MKAlert";
+
+// Custom hook to get window size
+const useWindowSize = () => {
+  const [size, setSize] = useState({ width: window.innerWidth, height: window.innerHeight });
+
+  useEffect(() => {
+    const handleResize = () => {
+      setSize({ width: window.innerWidth, height: window.innerHeight });
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  return size;
+};
 
 function Presentation() {
   const [imageHeight, setImageHeight] = useState(0);
-  const [maxWidth, setMaxWidth] = useState(0);
   const containerRef = useRef(null);
   const [inputText, setInputText] = useState("");
   const [streamingResponseUrl, setStreamingResponseUrl] = useState(null);
@@ -64,7 +69,18 @@ function Presentation() {
   const [question, setQuestion] = useState("");
   const [showModal, setShowModal] = useState(false);
   const toggleModal = () => setShowModal(!showModal);
-  const [modalSize, setModalSize] = useState({ width: 0, height: 0 });
+  const { width, height } = useWindowSize();
+  const [isLandscape, setIsLandscape] = useState(window.innerWidth > window.innerHeight);
+
+  const modalStyle = {
+    width: width > 600 ? "80%" : "90%",
+    height: height > 600 ? "70vh" : "80vh",
+    backgroundColor: "#fff",
+    border: "2px solid white",
+    borderRadius: "10px",
+    position: "relative",
+    outline: "none",
+  };
 
   useEffect(() => {
     const img = new Image();
@@ -76,37 +92,10 @@ function Presentation() {
 
   useEffect(() => {
     const handleResize = () => {
-      if (containerRef.current) {
-        setModalSize({
-          width: containerRef.current.clientWidth,
-          height: containerRef.current.clientHeight,
-        });
-      }
+      setIsLandscape(window.innerWidth > window.innerHeight);
     };
 
     window.addEventListener("resize", handleResize);
-    handleResize(); // Initial sizing
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (containerRef.current) {
-        setMaxWidth(containerRef.current.offsetWidth - 40);
-        console.log("maxWidth", maxWidth);
-      }
-    };
-
-    // Calculate on mount
-    handleResize();
-
-    // Add event listener for window resize
-    window.addEventListener("resize", handleResize);
-
-    // Clean up
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
@@ -353,28 +342,26 @@ function Presentation() {
               sx={{ display: "grid", placeItems: "center" }}
             >
               <Slide direction="down" in={showModal}>
-                <MKBox
-                  alignItems="center"
-                  justifyContent="center"
-                  sx={{
-                    backgroundColor: "#fff",
-                    border: "2px solid white",
-                    borderRadius: "10px",
-                    position: "relative",
-                    outline: "none",
-                    // Default modal size
-                    width: "90%",
-                    height: "60%",
-                    // Responsive styling for landscape mode
-                    "@media (orientation: landscape)": {
-                      width: "90%",
-                      height: "80vh",
-                    },
-                  }}
-                  style={{ marginRight: "1rem", marginLeft: "1rem" }}
-                >
-                  <OurVisText data={GraphData} width={modalSize.width} height={modalSize.height} />
-                </MKBox>
+                {isLandscape ? (
+                  <MKBox
+                    alignItems="center"
+                    justifyContent="center"
+                    sx={modalStyle}
+                    style={{ marginRight: "1rem", marginLeft: "1rem" }}
+                  >
+                    <OurVisTextLandscape data={GraphData} />
+                  </MKBox>
+                ) : (
+                  <MKBox
+                    alignItems="center"
+                    justifyContent="center"
+                    sx={modalStyle}
+                    style={{ marginRight: "1rem", marginLeft: "1rem" }}
+                  >
+                    <OurVisText data={GraphData} />
+                    <MKAlert color="lilac">Turn your phone for a better view!</MKAlert>
+                  </MKBox>
+                )}
               </Slide>
             </Modal>
           </MKBox>

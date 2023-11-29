@@ -220,26 +220,48 @@ function Presentation() {
           </MKTypography>
         </MKBox>
         <MKBox>
-          <Card
-            sx={{
-              py: 2,
-              mx: { xs: 3, lg: 2 },
-              backgroundColor: "#e6d7ff",
-              backdropFilter: "saturate(200%) blur(30px)",
-              boxShadow: ({ boxShadows: { xxl } }) => xxl,
-              border: "2px solid white",
-            }}
-          >
-            <Container ref={containerRef}>
-              <Grid container item xs={12} lg={4} justifyContent="center" mx="auto" marginTop={0}>
-                <Gallery images={images} />
-              </Grid>
-              <Grid container item xs={12} lg={4} justifyContent="center" mx="auto" marginTop={2}>
-                <DateTrackerDating startDate="2023-04-16T21:00:00" />
-                <DateTracker startDate="2023-11-21T20:17:00" />
-              </Grid>
-            </Container>
-          </Card>
+          <MKBox display="flex" flexDirection="row" justifyContent="center" alignItems="center">
+            <Card
+              sx={{
+                py: 2,
+                mx: { xs: 2 },
+                backgroundColor: "#e6d7ff",
+                backdropFilter: "saturate(200%) blur(30px)",
+                boxShadow: ({ boxShadows: { xxl } }) => xxl,
+                border: "2px solid white",
+              }}
+            >
+              <Container ref={containerRef}>
+                <Grid container item xs={12} lg={4} justifyContent="center" mx="auto" marginTop={0}>
+                  <Gallery images={images} />
+                </Grid>
+                <Grid container item xs={12} lg={4} justifyContent="center" mx="auto" marginTop={2}>
+                  <DateTrackerDating startDate="2023-04-16T21:00:00" />
+                  <DateTracker startDate="2023-11-21T20:17:00" />
+                </Grid>
+              </Container>
+            </Card>
+            <Card
+              sx={{
+                py: 2,
+                mx: { xs: 2, lg: 2 },
+                backgroundColor: "#e6d7ff",
+                backdropFilter: "saturate(200%) blur(30px)",
+                boxShadow: ({ boxShadows: { xxl } }) => xxl,
+                border: "2px solid white",
+              }}
+            >
+              <Container ref={containerRef}>
+                <Grid container item xs={12} lg={4} justifyContent="center" mx="auto" marginTop={0}>
+                  <Gallery images={images} />
+                </Grid>
+                <Grid container item xs={12} lg={4} justifyContent="center" mx="auto" marginTop={2}>
+                  <DateTrackerDating startDate="2023-04-16T21:00:00" />
+                  <DateTracker startDate="2023-11-21T20:17:00" />
+                </Grid>
+              </Container>
+            </Card>
+          </MKBox>
           <MKTypography
             variant="h5"
             fontWeight="bold"
@@ -250,11 +272,11 @@ function Presentation() {
               marginBottom: 1,
               // Multiple shadows to create the outline effect
               textShadow: `
-      -1px -1px 0 #fff,  
-      1px -1px 0 #fff,
-      -1px 1px 0 #fff,
-      1px 1px 0 #fff
-    `,
+            -1px -1px 0 #fff,  
+            1px -1px 0 #fff,
+            -1px 1px 0 #fff,
+            1px 1px 0 #fff
+          `,
             }}
           >
             Code that Charlotte made !

@@ -5,6 +5,10 @@ import MKBox from "components/MKBox";
 import MKTypography from "components/MKTypography";
 import MKButton from "components/MKButton";
 import MKInput from "components/MKInput";
+import DefaultNavbar from "examples/Navbars/DefaultNavbar";
+import routes from "routes";
+import HeartAnimation from "./animation";
+import bgImage from "assets/images/bgimage.jpg";
 
 const AndieAndCharlotteGPT = () => {
   const [inputText, setInputText] = useState("");
@@ -12,6 +16,16 @@ const AndieAndCharlotteGPT = () => {
   const [answer, setAnswer] = useState(false);
   const [isGenerating, setIsGenerating] = useState(false);
   const [question, setQuestion] = useState("");
+
+  const [imageHeight, setImageHeight] = useState(0);
+
+  useEffect(() => {
+    const img = new Image();
+    img.onload = () => {
+      setImageHeight(img.height);
+    };
+    img.src = bgImage;
+  }, [bgImage]);
 
   const askQuestion = async (question) => {
     try {
@@ -68,55 +82,105 @@ const AndieAndCharlotteGPT = () => {
   }, [streamingResponseUrl]);
 
   return (
-    <MKBox>
-      <Card
+    <>
+      <DefaultNavbar routes={routes} sticky />
+      <MKBox
+        minHeight={`${imageHeight}px`}
+        width="100%"
         sx={{
-          py: 2,
-          mx: { xs: 3, lg: 2 },
-          backgroundColor: "#dbcbe9",
-          backdropFilter: "saturate(200%) blur(30px)",
-          boxShadow: ({ boxShadows: { xxl } }) => xxl,
-          border: "2px solid #fff4e4",
+          backgroundImage: `url(${bgImage})`,
+          backgroundSize: "cover",
+          backgroundPosition: "top",
+          display: "flex", // Changed to flex for more control
+          flexDirection: "column", // Stack children vertically
+          justifyContent: "flex-start", // Align children to the start of the container
         }}
       >
-        <MKBox px={3} py={1}>
-          <MKBox display="flex" style={{ backgroundColor: "#fff", borderRadius: "10px" }}>
-            <MKInput
-              varint="standard"
-              multiline
-              value={inputText}
-              fullWidth
-              style={{
-                bacgroundColor: "#fff",
-              }} // Add this line
-              onChange={(e) => setInputText(e.target.value)}
-              onKeyPress={(event) => {
-                if (event.key === "Enter") {
-                  setQuestion(inputText);
-                }
-              }}
-            />
-          </MKBox>
-          <MKBox marginTop={2} display="flex" alignItems="center" justifyContent="center">
-            <MKButton onClick={() => setQuestion(inputText)}>Ask Away !</MKButton>
-          </MKBox>
-          <MKBox
-            marginTop={2}
-            height="20vh"
-            overflow="auto"
+        <HeartAnimation />
+        <MKBox
+          marginTop={15}
+          marginBottom={0}
+          display="flex"
+          flexDirection="column"
+          justifyContent="flex-start"
+          sx={{
+            width: "100%",
+            height: "10%",
+          }}
+        >
+          <MKTypography
+            variant="h2"
+            fontWeight="bold"
+            textAlign="center"
+            color="lilac"
             sx={{
-              border: "2px solid #fff4e4",
-              borderRadius: "10px",
-              backgroundColor: "#fff",
+              marginTop: 0,
+              marginBottom: 5,
+              marginLeft: 1,
+              marginRight: 1,
+              // Multiple shadows to create the outline effect
+              textShadow: `
+          -1px -1px 0 #fff,  
+          1px -1px 0 #fff,
+          -1px 1px 0 #fff,
+          1px 1px 0 #fff
+        `,
             }}
           >
-            <MKTypography variant="body2" marginBottom={1} p={2}>
-              {answer}
-            </MKTypography>
+            Imagine ChatGPT, but about us !
+          </MKTypography>
+          <MKBox>
+            <Card
+              sx={{
+                py: 2,
+                mx: { xs: 3, lg: 2 },
+                backgroundColor: "#dbcbe9",
+                backdropFilter: "saturate(200%) blur(30px)",
+                boxShadow: ({ boxShadows: { xxl } }) => xxl,
+                border: "2px solid #fff4e4",
+              }}
+            >
+              <MKBox px={3} py={1}>
+                <MKBox display="flex" style={{ backgroundColor: "#fff", borderRadius: "10px" }}>
+                  <MKInput
+                    varint="standard"
+                    multiline
+                    value={inputText}
+                    fullWidth
+                    style={{
+                      bacgroundColor: "#fff",
+                    }} // Add this line
+                    onChange={(e) => setInputText(e.target.value)}
+                    onKeyPress={(event) => {
+                      if (event.key === "Enter") {
+                        setQuestion(inputText);
+                      }
+                    }}
+                  />
+                </MKBox>
+                <MKBox marginTop={2} display="flex" alignItems="center" justifyContent="center">
+                  <MKButton onClick={() => setQuestion(inputText)}>Ask Away !</MKButton>
+                </MKBox>
+                <MKBox
+                  marginTop={2}
+                  height="20vh"
+                  overflow="auto"
+                  sx={{
+                    border: "2px solid #fff4e4",
+                    borderRadius: "10px",
+                    backgroundColor: "#fff",
+                  }}
+                >
+                  <MKTypography variant="body2" marginBottom={1} p={2}>
+                    {answer}
+                  </MKTypography>
+                </MKBox>
+              </MKBox>
+            </Card>
           </MKBox>
         </MKBox>
-      </Card>
-    </MKBox>
+      </MKBox>
+    </>
   );
 };
 

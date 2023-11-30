@@ -37,8 +37,9 @@ function ThingsCharlotteDidForAndie() {
           backgroundImage: `url(${bgImage})`,
           backgroundSize: "cover",
           backgroundPosition: "top",
-          display: "grid",
-          placeItems: "top",
+          display: "flex", // Changed to flex for more control
+          flexDirection: "column", // Stack children vertically
+          justifyContent: "flex-start", // Align children to the start of the container
         }}
       >
         <HeartAnimation />

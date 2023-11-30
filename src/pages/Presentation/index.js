@@ -66,7 +66,7 @@ function Presentation() {
           }}
         >
           <MKBox display="flex" justifyContent="center">
-            <SpeechBubble color="#dbcbe9" mood="happy" size={100} />
+            <SpeechBubble color="#d3b8c3" mood="happy" size={100} />
           </MKBox>
           <MKTypography
             variant="h2"
@@ -118,7 +118,7 @@ function Presentation() {
                   width: { xs: "100%", sm: "50%", md: "33.333%", lg: "25%" }, // or fixed width in pixels
                   py: 2,
                   mx: { xs: 3, lg: 0 },
-                  backgroundColor: "#dbcbe9",
+                  backgroundColor: "#d3b8c3",
                   backdropFilter: "saturate(200%) blur(30px)",
                   boxShadow: ({ boxShadows: { xxl } }) => xxl,
                   border: "2px solid #fff4e4",
@@ -153,6 +153,24 @@ function Presentation() {
                     </MKTypography>
                   </Grid>
                 </Container>
+                <MKBox
+                  sx={{
+                    mx: { xs: 1 },
+                    backdropFilter: "saturate(200%) blur(30px)",
+                    border: "2px solid #fff4e4",
+                  }}
+                >
+                  <NowPlayingChar />
+                </MKBox>
+                <MKBox
+                  sx={{
+                    mx: { xs: 1 },
+                    backdropFilter: "saturate(200%) blur(30px)",
+                    border: "2px solid #fff4e4",
+                  }}
+                >
+                  <NowPlaying />
+                </MKBox>
               </Card>
             </MKBox>
             <MKTypography

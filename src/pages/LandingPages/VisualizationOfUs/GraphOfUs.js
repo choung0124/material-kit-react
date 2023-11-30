@@ -89,94 +89,107 @@ function GraphOfUs() {
           backgroundImage: `url(${bgImage})`,
           backgroundSize: "cover",
           backgroundPosition: "top",
-          display: "grid",
-          placeItems: "top",
+          display: "flex", // Changed to flex for more control
+          flexDirection: "column", // Stack children vertically
+          justifyContent: "flex-start", // Align children to the start of the container
         }}
       >
         <HeartAnimation />
-        <MKTypography
-          variant="h5"
-          fontWeight="bold"
-          textAlign="center"
-          color="lilac"
+        <MKBox
+          marginTop={15}
+          marginBottom={0}
+          display="flex"
+          flexDirection="column"
+          justifyContent="flex-start"
           sx={{
-            marginTop: 2,
-            marginBottom: 1,
-            // Multiple shadows to create the outline effect
-            textShadow: `
-              -1px -1px 0 #fff,  
-              1px -1px 0 #fff,
-              -1px 1px 0 #fff,
-              1px 1px 0 #fff
-            `,
-            marginLeft: "1rem",
-            marginRight: "1rem",
+            width: "100%",
+            height: "10%",
           }}
         >
-          We are connected on so many different levels :)
-        </MKTypography>
-        <MKBox>
-          <Card
+          <MKTypography
+            variant="h2"
+            fontWeight="bold"
+            textAlign="center"
+            color="lilac"
             sx={{
-              py: 2,
-              mx: { xs: 3, lg: 2 },
-              backgroundColor: "#dbcbe9",
-              backdropFilter: "saturate(200%) blur(30px)",
-              boxShadow: ({ boxShadows: { xxl } }) => xxl,
-              border: "2px solid #fff4e4",
+              marginTop: 0,
+              marginBottom: 5,
+              marginLeft: 1,
+              marginRight: 1,
+              // Multiple shadows to create the outline effect
+              textShadow: `
+            -1px -1px 0 #fff,  
+            1px -1px 0 #fff,
+            -1px 1px 0 #fff,
+            1px 1px 0 #fff
+          `,
             }}
-            display="flex"
-            justifyContent="center"
-            alignItems="center"
           >
-            <MKBox
+            We&apos;re connected in so many different ways !
+          </MKTypography>
+          <MKBox>
+            <Card
               sx={{
-                backgroundColor: "#fff",
+                py: 2,
+                mx: { xs: 3, lg: 2 },
+                backgroundColor: "#dbcbe9",
+                backdropFilter: "saturate(200%) blur(30px)",
+                boxShadow: ({ boxShadows: { xxl } }) => xxl,
                 border: "2px solid #fff4e4",
-                borderRadius: "10px",
-                position: "relative", // Add this line
               }}
-              style={{ marginRight: "1rem", marginLeft: "1rem" }}
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
             >
-              <OurVis data={GraphData} />
-              <OpenInFullIcon
-                style={{
-                  position: "absolute", // Position the icon absolutely
-                  top: 8, // Adjust top as per requirement
-                  right: 8, // Adjust right as per requirement
+              <MKBox
+                sx={{
+                  backgroundColor: "#fff",
+                  border: "2px solid transparent",
+                  borderRadius: "10px",
+                  position: "relative", // Add this line
                 }}
-                onClick={toggleModal}
-              />
-            </MKBox>
-          </Card>
-          <Modal
-            open={showModal}
-            onClose={toggleModal}
-            sx={{ display: "grid", placeItems: "center" }}
-          >
-            <Slide direction="down" in={showModal}>
-              {isLandscape ? (
-                <MKBox
-                  alignItems="center"
-                  justifyContent="center"
-                  sx={modalStyle}
-                  style={{ marginRight: "1rem", marginLeft: "1rem" }}
-                >
-                  <OurVisTextLandscape data={GraphData} />
-                </MKBox>
-              ) : (
-                <MKBox
-                  alignItems="center"
-                  justifyContent="center"
-                  sx={modalStyle}
-                  style={{ marginRight: "1rem", marginLeft: "1rem" }}
-                >
-                  <OurVisText data={GraphData} />
-                  <MKAlert color="lilac">Turn your phone for a better view!</MKAlert>
-                </MKBox>
-              )}
-            </Slide>
-          </Modal>
+                style={{ marginRight: "1rem", marginLeft: "1rem" }}
+              >
+                <OurVis data={GraphData} />
+                <OpenInFullIcon
+                  style={{
+                    position: "absolute", // Position the icon absolutely
+                    top: 8, // Adjust top as per requirement
+                    right: 8, // Adjust right as per requirement
+                  }}
+                  onClick={toggleModal}
+                />
+              </MKBox>
+            </Card>
+            <Modal
+              open={showModal}
+              onClose={toggleModal}
+              sx={{ display: "grid", placeItems: "center" }}
+            >
+              <Slide direction="down" in={showModal}>
+                {isLandscape ? (
+                  <MKBox
+                    alignItems="center"
+                    justifyContent="center"
+                    sx={modalStyle}
+                    style={{ marginRight: "1rem", marginLeft: "1rem" }}
+                  >
+                    <OurVisTextLandscape data={GraphData} />
+                  </MKBox>
+                ) : (
+                  <MKBox
+                    alignItems="center"
+                    justifyContent="center"
+                    sx={modalStyle}
+                    style={{ marginRight: "1rem", marginLeft: "1rem" }}
+                  >
+                    <OurVisText data={GraphData} />
+                    <MKAlert color="lilac">Turn your phone for a better view!</MKAlert>
+                  </MKBox>
+                )}
+              </Slide>
+            </Modal>
+          </MKBox>
         </MKBox>
       </MKBox>
     </>

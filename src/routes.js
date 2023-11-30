@@ -49,6 +49,11 @@ import HappyBirthdayAndieEnglishPart1 from "pages/LandingPages/Letters/HappyBirt
 import HappyBirthdayAndieEnglishPart2 from "pages/LandingPages/Letters/HappyBirthdayAndie/HappyBirthdayAndieEnglishPart2";
 import LetterFromWork from "pages/LandingPages/Letters/HappyBirthdayAndie/LetterFromWork";
 import TodoList from "pages/LandingPages/TodoList/TodoList";
+import GraphOfUs from "pages/LandingPages/VisualizationOfUs/GraphOfUs";
+import AndieAndCharlotteGPT from "pages/LandingPages/VisualizationOfUs/AndieAndCharlotteGPT";
+import ThingsWeDidTogether from "pages/LandingPages/ThingsWeDid/ThingsWeDidTogether";
+import ThingsCharlotteDidForAndie from "pages/LandingPages/ThingsWeDid/ThingsCharlotteDidForAndie";
+import ThingsAndieDidForCharlotte from "pages/LandingPages/ThingsWeDid/ThingsAndieDidForCharlotte";
 // @mui icons
 
 // Sections
@@ -142,6 +147,47 @@ const routes = [
     rowsPerColumn: 2,
     route: "/pages/LandingPages/ToDoList",
     component: <TodoList />,
+  },
+  {
+    name: "Visualization of us",
+    icon: <Icon>dashboard</Icon>,
+    columns: 1,
+    rowsPerColumn: 2,
+    collapse: [
+      {
+        name: "Graph of us",
+        route: "/pages/LandingPages/VisualizationOfUs/GraphOfUs",
+        component: <GraphOfUs />,
+      },
+      {
+        name: "Andie and Charlotte GPT",
+        route: "/pages/LandingPages/VisualizationOfUs/AndieAndCharlotteGPT",
+        component: <AndieAndCharlotteGPT />,
+      },
+    ],
+  },
+  {
+    name: "Things We Did",
+    icon: <Icon>dashboard</Icon>,
+    columns: 1,
+    rowsPerColumn: 2,
+    collapse: [
+      {
+        name: "Things We Did",
+        route: "/pages/LandingPages/ThingsWeDid/ThingsWeDidTogether",
+        component: <ThingsWeDidTogether />,
+      },
+      {
+        name: "Things Charlotte Did for Andie",
+        route: "/pages/LandingPages/ThingsWeDid/ThingsCharlotteDidForAndie",
+        component: <ThingsCharlotteDidForAndie />,
+      },
+      {
+        name: "Things Andie Did for Charlotte",
+        route: "/pages/LandingPages/ThingsWeDid/ThingsAndieDidForCharlotte",
+        component: <ThingsAndieDidForCharlotte />,
+      },
+    ],
   },
 ];
 

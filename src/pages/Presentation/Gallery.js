@@ -15,14 +15,15 @@ const Gallery = ({ images }) => {
 
   return (
     <div className="gallery">
-      {images.map((image, index) => (
-        <img
-          key={image.id}
-          src={image.src}
-          alt={image.alt}
-          className={`gallery-image ${index === currentImageIndex ? "active" : ""}`}
-        />
-      ))}
+      {images &&
+        images.map((image, index) => (
+          <img
+            key={image.id}
+            src={image.src}
+            alt={image.alt}
+            className={`gallery-image ${index === currentImageIndex ? "active" : ""}`}
+          />
+        ))}
     </div>
   );
 };

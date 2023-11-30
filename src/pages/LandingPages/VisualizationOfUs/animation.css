@@ -1,0 +1,40 @@
+@keyframes fall {
+    0% {
+      transform: translateY(-100px) rotate(0deg);
+    }
+    100% {
+      transform: translateY(100vh) rotate(180deg);
+    }
+  }
+
+  @keyframes fall-start-mid {
+    0% { transform: translateY(50vh) rotate(90deg); }
+    100% { transform: translateY(100vh) rotate(180deg); }
+  }
+  
+  .heart {
+    position: absolute;
+    top: -100px;
+    width: 50px; /* Adjust the size based on your heart image dimensions */
+    height: 50px; /* Adjust the size based on your heart image dimensions */
+    background-size: cover;
+    animation: fall linear infinite;
+    animation-delay: var(--delay); /* This will use the custom property set in React */
+  }
+  
+  /* No need for nth-child anymore, as the background images are set inline in the component */
+  .heart {
+    animation-duration: calc(5s + (1s * var(--n))); /* Faster animation */
+    left: calc(5% + (90% * var(--n))); /* Example of randomizing the horizontal position */
+  }
+  
+
+  .heart-container {
+    position: fixed; /* or 'absolute' */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none; /* This allows clicks to pass through to elements below */
+  }
+  

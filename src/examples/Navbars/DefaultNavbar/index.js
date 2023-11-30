@@ -469,7 +469,7 @@ function DefaultNavbar({ brand, routes, transparent, light, action, sticky, rela
           border: "2px solid white",
         })}
         style={{
-          backgroundColor: "#e6d7ff",
+          backgroundColor: "#dbcbe9",
         }}
       >
         <MKBox display="flex" justifyContent="space-between" alignItems="center">

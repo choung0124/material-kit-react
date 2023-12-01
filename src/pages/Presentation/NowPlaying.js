@@ -180,6 +180,7 @@ const NowPlaying = () => {
                   component="a"
                   href={playerState === "PLAY" || playerState === "PAUSE" ? nowPlaying.songUrl : ""}
                   variant="body2"
+                  color="beige"
                 >
                   {title}
                 </MKTypography>
@@ -191,11 +192,12 @@ const NowPlaying = () => {
                     playerState === "PLAY" || playerState === "PAUSE" ? nowPlaying.artistUrl : ""
                   }
                   variant="body2"
+                  color="beige"
                 >
                   {artist}
                 </MKTypography>
 
-                <MKTypography className="nowPlayingTime" variant="body2">
+                <MKTypography className="nowPlayingTime" variant="body2" color="beige">
                   {pad(minutesPlayed)}:{pad(secondsPlayed)} / {pad(minutesTotal)}:
                   {pad(secondsTotal)}
                 </MKTypography>
@@ -203,7 +205,7 @@ const NowPlaying = () => {
             </MKBox>
           ) : (
             <MKBox id="nowPlayingDetails" style={{ maxWidth: "150px" }}>
-              <MKTypography className="nowPlayingTitle truncate-text" variant="body2">
+              <MKTypography className="nowPlayingTitle truncate-text" variant="body2" color="beige">
                 Loading...
               </MKTypography>
             </MKBox>
@@ -215,11 +217,11 @@ const NowPlaying = () => {
           ) : playerState === "PLAY" ? (
             <img alt="soundbar" src={soundbarGif} title="Now Listening" />
           ) : playerState === "PAUSE" ? (
-            <AiOutlinePauseCircle size={40} />
+            <AiOutlinePauseCircle size={40} style={{ color: "#fff4e4", marginTop: "10px" }} />
           ) : playerState === "OFFLINE" ? (
-            <HiOutlineStatusOffline size={40} />
+            <HiOutlineStatusOffline size={40} style={{ color: "#fff4e4", marginTop: "10px" }} />
           ) : (
-            <BiErrorCircle size={40} />
+            <BiErrorCircle size={40} style={{ color: "#fff4e4", marginTop: "10px" }} />
           )}
         </MKBox>
       </MKBox>

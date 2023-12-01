@@ -134,6 +134,7 @@ function DefaultNavbar({ brand, routes, transparent, light, action, sticky, rela
                       variant="button"
                       fontWeight="bold"
                       textTransform="capitalize"
+                      color="beige"
                       py={1}
                       px={0.5}
                       mt={index !== 0 ? 2 : 0}
@@ -151,7 +152,7 @@ function DefaultNavbar({ brand, routes, transparent, light, action, sticky, rela
                         minWidth="11.25rem"
                         display="block"
                         variant="button"
-                        color="text"
+                        color="beige"
                         textTransform="capitalize"
                         fontWeight="regular"
                         py={0.625}
@@ -216,7 +217,7 @@ function DefaultNavbar({ brand, routes, transparent, light, action, sticky, rela
             variant="button"
             textTransform="capitalize"
             minWidth={item.description ? "14rem" : "12rem"}
-            color={item.description ? "dark" : "text"}
+            color="beige"
             fontWeight={item.description ? "bold" : "regular"}
             py={item.description ? 1 : 0.625}
             px={2}
@@ -253,7 +254,7 @@ function DefaultNavbar({ brand, routes, transparent, light, action, sticky, rela
                 <MKTypography
                   display="block"
                   variant="button"
-                  color="text"
+                  color="beige"
                   fontWeight="regular"
                   sx={{ transition: "all 300ms linear" }}
                 >
@@ -267,6 +268,7 @@ function DefaultNavbar({ brand, routes, transparent, light, action, sticky, rela
               <Icon
                 fontSize="small"
                 sx={{ fontWeight: "normal", verticalAlign: "middle", mr: -0.5 }}
+                color="beige"
               >
                 keyboard_arrow_right
               </Icon>
@@ -314,7 +316,7 @@ function DefaultNavbar({ brand, routes, transparent, light, action, sticky, rela
           }}
         >
           <MKBox borderRadius="lg">
-            <MKTypography variant="h1" color="white">
+            <MKTypography variant="h1" color="beige">
               <Icon ref={setArrowRef} sx={{ mt: -3 }}>
                 arrow_drop_up
               </Icon>
@@ -360,7 +362,7 @@ function DefaultNavbar({ brand, routes, transparent, light, action, sticky, rela
                     variant="button"
                     textTransform="capitalize"
                     minWidth={item.description ? "14rem" : "12rem"}
-                    color={item.description ? "dark" : "text"}
+                    color="beige"
                     fontWeight={item.description ? "bold" : "regular"}
                     py={item.description ? 1 : 0.625}
                     px={2}
@@ -385,7 +387,7 @@ function DefaultNavbar({ brand, routes, transparent, light, action, sticky, rela
                         <MKTypography
                           display="block"
                           variant="button"
-                          color="text"
+                          color="beige"
                           fontWeight="regular"
                           sx={{ transition: "all 300ms linear" }}
                         >
@@ -480,7 +482,7 @@ function DefaultNavbar({ brand, routes, transparent, light, action, sticky, rela
             py={transparent ? 1.5 : 0.75}
             pl={relative || transparent ? 0 : { xs: 0, lg: 1 }}
           >
-            <MKTypography variant="button" fontWeight="bold" color={light ? "white" : "dark"}>
+            <MKTypography variant="button" fontWeight="bold" color="beige">
               {brand}
             </MKTypography>
           </MKBox>
@@ -535,7 +537,9 @@ function DefaultNavbar({ brand, routes, transparent, light, action, sticky, rela
             sx={{ cursor: "pointer" }}
             onClick={openMobileNavbar}
           >
-            <Icon fontSize="default">{mobileNavbar ? "close" : "menu"}</Icon>
+            <Icon fontSize="default" sx={{ color: "#fff4e4" }}>
+              {mobileNavbar ? "close" : "menu"}
+            </Icon>
           </MKBox>
         </MKBox>
         <MKBox

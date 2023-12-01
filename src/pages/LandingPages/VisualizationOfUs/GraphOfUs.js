@@ -96,7 +96,7 @@ function GraphOfUs() {
       >
         <HeartAnimation />
         <MKBox
-          marginTop={15}
+          marginTop={20}
           marginBottom={0}
           display="flex"
           flexDirection="column"
@@ -113,33 +113,31 @@ function GraphOfUs() {
             color="lilac"
             sx={{
               marginTop: 0,
-              marginBottom: 5,
-              marginLeft: 1,
-              marginRight: 1,
+              marginBottom: 10,
+              marginRight: 2,
+              marginLeft: 2,
               // Multiple shadows to create the outline effect
               textShadow: `
-            -1px -1px 0 #fff,  
-            1px -1px 0 #fff,
-            -1px 1px 0 #fff,
-            1px 1px 0 #fff
-          `,
+      -1px -1px 0 #fff4e4,  
+      1px -1px 0 #fff4e4,
+      -1px 1px 0 #fff4e4,
+      1px 1px 0 #fff4e4
+    `,
             }}
           >
             We&apos;re connected in so many different ways !
           </MKTypography>
-          <MKBox>
+          <MKBox display="flex" justifyContent="center" alignItems="center" marginBottom={5}>
             <Card
               sx={{
+                width: { xs: "100%", sm: "50%", md: "33.333%", lg: "25%" }, // or fixed width in pixels
                 py: 2,
-                mx: { xs: 3, lg: 2 },
-                backgroundColor: "#dbcbe9",
+                mx: { xs: 3, lg: 0 },
+                backgroundColor: "#d3b8c3",
                 backdropFilter: "saturate(200%) blur(30px)",
                 boxShadow: ({ boxShadows: { xxl } }) => xxl,
                 border: "2px solid #fff4e4",
               }}
-              display="flex"
-              justifyContent="center"
-              alignItems="center"
             >
               <MKBox
                 sx={{

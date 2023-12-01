@@ -20,11 +20,12 @@ import bgImage from "assets/images/bgimage.jpg";
 import DateTracker from "pages/Presentation/DateTracker";
 import DateTrackerDating from "pages/Presentation/DateTrackerDating";
 import MKTypography from "components/MKTypography";
-import { SpeechBubble } from "react-kawaii";
 import { useEffect, useState, useRef } from "react";
 import NowPlaying from "./NowPlaying";
 import NowPlayingChar from "./NowPlayingChar";
 import HeartAnimation from "./animation";
+import Icon3 from "assets/images/icon3.png";
+import Icon2 from "assets/images/icon2.png";
 
 function Presentation() {
   const [imageHeight, setImageHeight] = useState(0);
@@ -66,7 +67,7 @@ function Presentation() {
           }}
         >
           <MKBox display="flex" justifyContent="center">
-            <SpeechBubble color="#d3b8c3" mood="happy" size={100} />
+            <img src={Icon3} alt="icon" width="150" />
           </MKBox>
           <MKTypography
             variant="h2"
@@ -78,10 +79,10 @@ function Presentation() {
               marginBottom: 0,
               // Multiple shadows to create the outline effect
               textShadow: `
-            -1px -1px 0 #fff,  
-            1px -1px 0 #fff,
-            -1px 1px 0 #fff,
-            1px 1px 0 #fff
+            -1px -1px 0 #fff4e4,  
+            1px -1px 0 #fff4e4,
+            -1px 1px 0 #fff4e4,
+            1px 1px 0 #fff4e4
           `,
             }}
           >
@@ -99,10 +100,10 @@ function Presentation() {
               marginRight: 2,
               // Multiple shadows to create the outline effect
               textShadow: `
-            -1px -1px 0 #fff,  
-            1px -1px 0 #fff,
-            -1px 1px 0 #fff,
-            1px 1px 0 #fff
+            -1px -1px 0 #fff4e4,  
+            1px -1px 0 #fff4e4,
+            -1px 1px 0 #fff4e4,
+            1px 1px 0 #fff4e4
           `,
             }}
           >
@@ -124,6 +125,33 @@ function Presentation() {
                   border: "2px solid #fff4e4",
                 }}
               >
+                <MKBox display="flex" justifyContent="center" alignItems="center" marginTop={0}>
+                  <MKTypography
+                    variant="h3"
+                    fontWeight="bold"
+                    textAlign="center"
+                    color="beige"
+                    sx={{
+                      marginTop: 0,
+                      marginBottom: 0,
+                      marginRight: 2,
+                      // Multiple shadows to create the outline effect
+                    }}
+                  >
+                    Dashboard
+                  </MKTypography>
+                  <img src={Icon2} alt="icon" width="75" />
+                </MKBox>
+                <MKBox
+                  sx={{
+                    mx: "auto", // Set both left and right margins to auto to center the box
+                    borderTop: "2px solid #fff4e4", // Your border specification
+                    width: "90%", // Adjust the width as needed for your design
+                    height: 0, // Set the height to 0 to make the box act like just a line
+                  }}
+                  marginTop={2}
+                  marginBottom={1}
+                />
                 <Container ref={containerRef}>
                   <Grid
                     container
@@ -155,87 +183,71 @@ function Presentation() {
                 </Container>
                 <MKBox
                   sx={{
-                    mx: { xs: 1 },
-                    backdropFilter: "saturate(200%) blur(30px)",
-                    border: "2px solid #fff4e4",
+                    mx: "auto", // Set both left and right margins to auto to center the box
+                    borderTop: "2px solid #fff4e4", // Your border specification
+                    width: "90%", // Adjust the width as needed for your design
+                    height: 0, // Set the height to 0 to make the box act like just a line
                   }}
-                >
+                  marginTop={2}
+                  marginBottom={1}
+                />
+                <MKBox display="flex" alignItems="center" justifyContent="center">
+                  <MKTypography variant="body2" color="beige" marginTop={1}>
+                    Lets see what Charlotte is listening to :3
+                  </MKTypography>
+                </MKBox>
+                <MKBox
+                  sx={{
+                    mx: "auto", // Set both left and right margins to auto to center the box
+                    borderTop: "2px solid #fff4e4", // Your border specification
+                    width: "72%", // Adjust the width as needed for your design
+                    height: 0, // Set the height to 0 to make the box act like just a line
+                  }}
+                  marginTop={2}
+                  marginBottom={1}
+                />
+                <MKBox px={1} paddingRight={2}>
                   <NowPlayingChar />
                 </MKBox>
                 <MKBox
                   sx={{
-                    mx: { xs: 1 },
-                    backdropFilter: "saturate(200%) blur(30px)",
-                    border: "2px solid #fff4e4",
+                    mx: "auto", // Set both left and right margins to auto to center the box
+                    borderTop: "2px solid #fff4e4", // Your border specification
+                    width: "72%", // Adjust the width as needed for your design
+                    height: 0, // Set the height to 0 to make the box act like just a line
                   }}
-                >
+                  marginTop={1}
+                  marginBottom={1}
+                />
+                <MKBox display="flex" alignItems="center" justifyContent="center">
+                  <MKTypography variant="body2" color="beige" marginTop={1}>
+                    Lets see what Andie is listening to :3
+                  </MKTypography>
+                </MKBox>
+                <MKBox
+                  sx={{
+                    mx: "auto", // Set both left and right margins to auto to center the box
+                    borderTop: "2px solid #fff4e4", // Your border specification
+                    width: "72%", // Adjust the width as needed for your design
+                    height: 0, // Set the height to 0 to make the box act like just a line
+                  }}
+                  marginTop={2}
+                  marginBottom={1}
+                />
+                <MKBox px={1} paddingRight={2}>
                   <NowPlaying />
                 </MKBox>
+                <MKBox
+                  sx={{
+                    mx: "auto", // Set both left and right margins to auto to center the box
+                    borderTop: "2px solid #fff4e4", // Your border specification
+                    width: "90%", // Adjust the width as needed for your design
+                    height: 0, // Set the height to 0 to make the box act like just a line
+                  }}
+                  marginTop={1}
+                  marginBottom={2}
+                />
               </Card>
-            </MKBox>
-            <MKTypography
-              variant="h5"
-              fontWeight="bold"
-              textAlign="center"
-              color="lilac"
-              sx={{
-                marginTop: 2,
-                marginBottom: 1,
-                // Multiple shadows to create the outline effect
-                textShadow: `
-      -1px -1px 0 #fff,  
-      1px -1px 0 #fff,
-      -1px 1px 0 #fff,
-      1px 1px 0 #fff
-    `,
-              }}
-            >
-              Now Playing, for Charlotte
-            </MKTypography>
-            <MKBox
-              sx={{
-                mx: { xs: 3 },
-                backgroundColor: "#dbcbe9",
-                backdropFilter: "saturate(200%) blur(30px)",
-                boxShadow: ({ boxShadows: { xxl } }) => xxl,
-                border: "2px solid #fff4e4",
-                borderRadius: "16px",
-              }}
-              marginTop={0}
-            >
-              <NowPlayingChar />
-            </MKBox>
-            <MKTypography
-              variant="h5"
-              fontWeight="bold"
-              textAlign="center"
-              color="lilac"
-              sx={{
-                marginTop: 2,
-                marginBottom: 1,
-                // Multiple shadows to create the outline effect
-                textShadow: `
-      -1px -1px 0 #fff,  
-      1px -1px 0 #fff,
-      -1px 1px 0 #fff,
-      1px 1px 0 #fff
-    `,
-              }}
-            >
-              Now Playing, for Andie
-            </MKTypography>
-            <MKBox
-              sx={{
-                mx: { xs: 3 },
-                backgroundColor: "#dbcbe9",
-                backdropFilter: "saturate(200%) blur(30px)",
-                boxShadow: ({ boxShadows: { xxl } }) => xxl,
-                border: "2px solid #fff4e4",
-                borderRadius: "16px",
-              }}
-              marginTop={0}
-            >
-              <NowPlaying />
             </MKBox>
           </MKBox>
         </MKBox>

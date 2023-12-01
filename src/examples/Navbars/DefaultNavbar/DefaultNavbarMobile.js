@@ -60,6 +60,7 @@ function DefaultNavbarMobile({ routes, open }) {
                       variant="button"
                       fontWeight="bold"
                       textTransform="capitalize"
+                      color="beige"
                       py={1}
                       px={0.5}
                     >
@@ -76,7 +77,7 @@ function DefaultNavbarMobile({ routes, open }) {
                         minWidth="11.25rem"
                         display="block"
                         variant="button"
-                        color="text"
+                        color="beige"
                         textTransform="capitalize"
                         fontWeight="regular"
                         py={0.625}
@@ -127,13 +128,14 @@ function DefaultNavbarMobile({ routes, open }) {
                       variant="button"
                       fontWeight="bold"
                       textTransform="capitalize"
+                      color="beige"
                     >
                       {item.name}
                     </MKTypography>
                     <MKTypography
                       display="block"
                       variant="button"
-                      color="text"
+                      color="beige"
                       fontWeight="regular"
                       sx={{ transition: "all 300ms linear" }}
                     >

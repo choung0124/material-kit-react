@@ -23,7 +23,8 @@ import img3 from "assets/images/gallery/Andie/3.jpg";
 import img4 from "assets/images/gallery/Andie/4.jpg";
 import img5 from "assets/images/gallery/Andie/5.jpg";
 
-import Gallery from "./Gallery";
+import cornerTopLeft from "assets/images/corner1.png";
+import cornerBottomRight from "assets/images/corner4.png";
 
 import { Modal } from "@mui/material";
 
@@ -43,14 +44,6 @@ function ImageGallery() {
     };
     img.src = bgImage;
   }, [bgImage]);
-
-  const galleryImages = [
-    { id: 1, src: require("assets/images/gallery/Andie/1.jpg"), alt: "Description of image 1" },
-    { id: 2, src: require("assets/images/gallery/Andie/2.jpg"), alt: "Description of image 2" },
-    { id: 3, src: require("assets/images/gallery/Andie/3.jpg"), alt: "Description of image 2" },
-    { id: 4, src: require("assets/images/gallery/Andie/4.jpg"), alt: "Description of image 2" },
-    { id: 5, src: require("assets/images/gallery/Andie/5.jpg"), alt: "Description of image 2" },
-  ];
 
   const images = [img1, img2, img3, img4, img5];
 
@@ -73,24 +66,28 @@ function ImageGallery() {
     <>
       <DefaultNavbar routes={routes} sticky />
       <MKBox
-        maxHeight={`${imageHeight}px`}
+        minHeight={`${imageHeight}px`}
         width="100%"
         sx={{
           backgroundImage: `url(${bgImage})`,
           backgroundSize: "cover",
           backgroundPosition: "top",
-          display: "grid",
-          placeItems: "top",
+          display: "flex", // Changed to flex for more control
+          flexDirection: "column", // Stack children vertically
+          justifyContent: "flex-start", // Align children to the start of the container
         }}
       >
         <HeartAnimation />
         <MKBox
-          marginTop={18}
+          marginTop={20}
           marginBottom={0}
           display="flex"
           flexDirection="column"
-          alignItems="center"
           justifyContent="flex-start"
+          sx={{
+            width: "100%",
+            height: "100%",
+          }}
         >
           <MKTypography
             variant="h2"
@@ -99,13 +96,13 @@ function ImageGallery() {
             color="lilac"
             sx={{
               marginTop: 0,
-              marginBottom: 3,
+              marginBottom: 10,
               // Multiple shadows to create the outline effect
               textShadow: `
-      -1px -1px 0 #fff,  
-      1px -1px 0 #fff,
-      -1px 1px 0 #fff,
-      1px 1px 0 #fff
+      -1px -1px 0 #fff4e4,  
+      1px -1px 0 #fff4e4,
+      -1px 1px 0 #fff4e4,
+      1px 1px 0 #fff4e4
     `,
             }}
           >
@@ -115,18 +112,15 @@ function ImageGallery() {
         <MKBox display="flex" justifyContent="center" alignItems="center" marginBottom={5}>
           <Card
             sx={{
-              py: 2,
-              mt: 10,
-              mx: { xs: 3, lg: 2 },
-              backgroundColor: "#e6d7ff",
+              width: { xs: "100%", sm: "50%", md: "33.333%", lg: "25%" }, // or fixed width in pixels
+              py: 1,
+              mx: { xs: 3, lg: 0 },
+              backgroundColor: "#d3b8c3",
               backdropFilter: "saturate(200%) blur(30px)",
               boxShadow: ({ boxShadows: { xxl } }) => xxl,
-              border: "2px solid white",
+              border: "2px solid #fff4e4",
             }}
           >
-            <MKBox px={3} py={2}>
-              <Gallery images={galleryImages} />
-            </MKBox>
             <MKBox
               px={3}
               py={2}
@@ -137,21 +131,53 @@ function ImageGallery() {
               }}
               overflow="auto"
             >
-              {images.map((img, index) => (
-                <MKBox
-                  key={index}
-                  className="animate-image"
-                  style={{ ...imageStyle }}
-                  sx={{ border: "2px solid white" }}
-                >
-                  <img
-                    src={img}
-                    alt={`Gallery ${index}`}
-                    style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                    onClick={() => handleImageClick(img)}
-                  />
-                </MKBox>
-              ))}
+              {images.map((img, index) => {
+                return (
+                  <MKBox
+                    key={index}
+                    className="image-container"
+                    sx={{ position: "relative" /* ...other styles... */ }}
+                    style={{ ...imageStyle }}
+                  >
+                    <img
+                      src={img}
+                      alt={`Gallery ${index}`}
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                        borderRadius: "10px",
+                        border: "2px solid #fff4e4",
+                      }}
+                      onClick={() => handleImageClick(img)}
+                    />
+                    {/* Top-left corner image */}
+                    <img
+                      src={cornerTopLeft}
+                      alt="Decorative corner"
+                      style={{
+                        position: "absolute",
+                        top: -10,
+                        left: -10,
+                        width: "70px",
+                        height: "70px",
+                      }}
+                    />
+                    {/* Bottom-right corner image */}
+                    <img
+                      src={cornerBottomRight}
+                      alt="Decorative corner"
+                      style={{
+                        position: "absolute",
+                        bottom: -10,
+                        right: -10,
+                        width: "70px",
+                        height: "70px",
+                      }}
+                    />
+                  </MKBox>
+                );
+              })}
             </MKBox>
             <Modal
               open={isModalOpen}

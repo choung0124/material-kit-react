@@ -35,18 +35,22 @@ function Proposal() {
           backgroundImage: `url(${bgImage})`,
           backgroundSize: "cover",
           backgroundPosition: "top",
-          display: "grid",
-          placeItems: "top",
+          display: "flex", // Changed to flex for more control
+          flexDirection: "column", // Stack children vertically
+          justifyContent: "flex-start", // Align children to the start of the container
         }}
       >
         <HeartAnimation />
         <MKBox
-          marginTop={18}
-          marginBottom={3}
+          marginTop={20}
+          marginBottom={0}
           display="flex"
           flexDirection="column"
-          alignItems="center"
           justifyContent="flex-start"
+          sx={{
+            width: "100%",
+            height: "10%",
+          }}
         >
           <MKTypography
             variant="h2"
@@ -55,29 +59,29 @@ function Proposal() {
             color="lilac"
             sx={{
               marginTop: 0,
-              marginBottom: 3,
+              marginBottom: 10,
               // Multiple shadows to create the outline effect
               textShadow: `
-      -1px -1px 0 #fff,  
-      1px -1px 0 #fff,
-      -1px 1px 0 #fff,
-      1px 1px 0 #fff
+      -1px -1px 0 #fff4e4,  
+      1px -1px 0 #fff4e4,
+      -1px 1px 0 #fff4e4,
+      1px 1px 0 #fff4e4
     `,
             }}
           >
             I love you :)
           </MKTypography>
         </MKBox>
-        <MKBox>
+        <MKBox display="flex" justifyContent="center" alignItems="center" marginBottom={5}>
           <Card
             sx={{
-              py: 2,
-              mt: -50,
-              mx: { xs: 3, lg: 2 },
-              backgroundColor: "#e6d7ff",
+              width: { xs: "100%", sm: "50%", md: "33.333%", lg: "25%" }, // or fixed width in pixels
+              py: 1,
+              mx: { xs: 3, lg: 0 },
+              backgroundColor: "#d3b8c3",
               backdropFilter: "saturate(200%) blur(30px)",
               boxShadow: ({ boxShadows: { xxl } }) => xxl,
-              border: "2px solid white",
+              border: "2px solid #fff4e4",
             }}
           >
             <MKBox px={3} py={2}>

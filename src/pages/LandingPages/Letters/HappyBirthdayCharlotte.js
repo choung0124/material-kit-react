@@ -86,34 +86,34 @@ function HappyBirthdayCharlotte() {
             }}
           >
             <MKBox px={3} py={2}>
-              <MKTypography variant="body2" marginBottom={1}>
+              <MKTypography variant="body2" marginBottom={1} color="beige">
                 Happy birthday :)
               </MKTypography>
-              <MKTypography variant="body2" marginBottom={1}>
+              <MKTypography variant="body2" marginBottom={1} color="beige">
                 I really do wish you a happy birthday. We celebrate our birthdays to celebrate the
                 day, or even the fact that we were born, right? So let me say this.
               </MKTypography>
-              <MKTypography variant="body2" marginBottom={1}>
+              <MKTypography variant="body2" marginBottom={1} color="beige">
                 I’m so happy that you were born, and I genuinely wish to celebrate that.
               </MKTypography>
-              <MKTypography variant="body2" marginBottom={1}>
+              <MKTypography variant="body2" marginBottom={1} color="beige">
                 Thank you for being my friend. And thank you for being, you :)
               </MKTypography>
-              <MKTypography variant="body2" marginBottom={1}>
+              <MKTypography variant="body2" marginBottom={1} color="beige">
                 I love you, and being friends with you. Even if my facial expressions may not always
                 show it ㅋㅋㅋ, I really enjoy your company :) As people, we may change, and
                 sometimes we may not always see eye to eye, but that won’t change how much I value
                 our friendship. That’s because at the heart of everything that makes me appreciate
                 you and our friendship, is your heart(you see what i did there? ㅎㅎ).
               </MKTypography>
-              <MKTypography variant="body2" marginBottom={1}>
+              <MKTypography variant="body2" marginBottom={1} color="beige">
                 You have a good heart. Everything you do and say comes from this good place, and I
                 trust that.
               </MKTypography>
-              <MKTypography variant="body2" marginBottom={1}>
+              <MKTypography variant="body2" marginBottom={1} color="beige">
                 So, thank you for being, you :)
               </MKTypography>
-              <MKTypography variant="body2" marginBottom={1}>
+              <MKTypography variant="body2" marginBottom={1} color="beige">
                 Happy birthday Charlotte
               </MKTypography>
             </MKBox>

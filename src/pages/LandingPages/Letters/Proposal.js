@@ -85,26 +85,26 @@ function Proposal() {
             }}
           >
             <MKBox px={3} py={2}>
-              <MKTypography variant="body2" marginBottom={1}>
+              <MKTypography variant="body2" marginBottom={1} color="beige">
                 Lately I have noticed some things. Maybe I am a fool. Perhaps you could even call me
                 a donut. But I’d rather be a fool, than to let this opportunity go.
               </MKTypography>
-              <MKTypography variant="body2" marginBottom={1}>
+              <MKTypography variant="body2" marginBottom={1} color="beige">
                 In the past I have loved you as a friend, but today I’d like to ask you for a chance
                 to love you as a partner.
               </MKTypography>
-              <MKTypography variant="body2" marginBottom={1}>
+              <MKTypography variant="body2" marginBottom={1} color="beige">
                 I love you, and that love is complex.
               </MKTypography>
-              <MKTypography variant="body2" marginBottom={1}>
+              <MKTypography variant="body2" marginBottom={1} color="beige">
                 It’s not something I can just label as platonic or romantic.
               </MKTypography>
-              <MKTypography variant="body2" marginBottom={1}>
+              <MKTypography variant="body2" marginBottom={1} color="beige">
                 We’ve been spending more time together recently, and I find that I hold myself back.
                 Hold myself back from expressing the ocean of love for you that resides in my heart.
                 Hold myself back from crossing the line that sits between friendship and romance.
               </MKTypography>
-              <MKTypography variant="body2" marginBottom={1}>
+              <MKTypography variant="body2" marginBottom={1} color="beige">
                 If there is infinite number of ways to love you, I’d like to learn every single one
                 of them, as a partners, with you. I can’t promise you what the future of tomorrow
                 holds for us, but I can promise that I love you today and I will love you tomorrow.

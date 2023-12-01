@@ -88,49 +88,49 @@ function LetterFromWork() {
             }}
           >
             <MKBox px={3} py={2}>
-              <MKTypography variant="body2" marginBottom={1}>
+              <MKTypography variant="body2" marginBottom={1} color="beige">
                 Your first Monday after your birthday !
               </MKTypography>
-              <MKTypography variant="body2" marginBottom={1}>
+              <MKTypography variant="body2" marginBottom={1} color="beige">
                 I wish I could be there with you...
               </MKTypography>
-              <MKTypography variant="body2" marginBottom={1}>
+              <MKTypography variant="body2" marginBottom={1} color="beige">
                 But instead of me, I&apos;m giving you this gift.
               </MKTypography>
-              <MKTypography variant="body2" marginBottom={1}>
+              <MKTypography variant="body2" marginBottom={1} color="beige">
                 This is the mini version of the calendar for your desk as well as a cute pen that
                 matches you.
               </MKTypography>
-              <MKTypography variant="body2" marginBottom={1}>
+              <MKTypography variant="body2" marginBottom={1} color="beige">
                 I wanted to say in here how happy I am to have you.
               </MKTypography>
-              <MKTypography variant="body2" marginBottom={1}>
+              <MKTypography variant="body2" marginBottom={1} color="beige">
                 I am really lucky to have you.
               </MKTypography>
-              <MKTypography variant="body2" marginBottom={1}>
+              <MKTypography variant="body2" marginBottom={1} color="beige">
                 I wish one day I can be on your your frist mondays after every of one of your
                 birthdays.
               </MKTypography>
-              <MKTypography variant="body2" marginBottom={1}>
+              <MKTypography variant="body2" marginBottom={1} color="beige">
                 I hope the world gives you the best oppurtunities and people.
               </MKTypography>
-              <MKTypography variant="body2" marginBottom={1}>
+              <MKTypography variant="body2" marginBottom={1} color="beige">
                 I want you to always have the best.
               </MKTypography>
-              <MKTypography variant="body2" marginBottom={1}>
+              <MKTypography variant="body2" marginBottom={1} color="beige">
                 You are the most beautiful person I meet here, and (if I can say it) in my life.
               </MKTypography>
-              <MKTypography variant="body2" marginBottom={1}>
+              <MKTypography variant="body2" marginBottom={1} color="beige">
                 Keep with you hard work and remember that you are loved, not only because of the
                 actions you make but how lovely you are.
               </MKTypography>
-              <MKTypography variant="body2" marginBottom={1}>
+              <MKTypography variant="body2" marginBottom={1} color="beige">
                 Hope for the best start of the week.
               </MKTypography>
-              <MKTypography variant="body2" marginBottom={1}>
+              <MKTypography variant="body2" marginBottom={1} color="beige">
                 Love you ! <FavoriteIcon />
               </MKTypography>
-              <MKTypography variant="body2" marginBottom={1}>
+              <MKTypography variant="body2" marginBottom={1} color="beige">
                 -Charlotte
               </MKTypography>
             </MKBox>

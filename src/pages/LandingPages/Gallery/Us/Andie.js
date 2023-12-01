@@ -162,6 +162,7 @@ function ImageGallery() {
                         width: "70px",
                         height: "70px",
                       }}
+                      onClick={() => handleImageClick(img)}
                     />
                     {/* Bottom-right corner image */}
                     <img
@@ -174,6 +175,7 @@ function ImageGallery() {
                         width: "70px",
                         height: "70px",
                       }}
+                      onClick={() => handleImageClick(img)}
                     />
                   </MKBox>
                 );

@@ -111,7 +111,7 @@ function ImageGallery() {
           justifyContent="flex-start"
           sx={{
             width: "100%",
-            height: "10%",
+            height: "100%",
           }}
         >
           <MKTypography
@@ -187,6 +187,7 @@ function ImageGallery() {
                         width: "70px",
                         height: "70px",
                       }}
+                      onClick={() => handleImageClick(img)}
                     />
                     {/* Bottom-right corner image */}
                     <img
@@ -199,6 +200,7 @@ function ImageGallery() {
                         width: "70px",
                         height: "70px",
                       }}
+                      onClick={() => handleImageClick(img)}
                     />
                   </MKBox>
                 );

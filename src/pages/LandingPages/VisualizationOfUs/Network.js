@@ -12,12 +12,22 @@ const OurVis = ({ data }) => {
     const width = container.clientWidth;
     const height = container.clientHeight;
 
+    const zoomLevel = 1.5; // Example zoom level (2x)
+    const centerX = width / 2;
+    const centerY = height / 2;
+    const zoomedWidth = width / zoomLevel;
+    const zoomedHeight = height / zoomLevel;
+
     const svg = d3
       .select(svgRef.current)
-      .attr("width", "100%")
-      .attr("height", "100%")
-      .attr("viewBox", [0, 0, width, height]) // Adjust the viewBox to match the aspect ratio of the SVG container
-      .attr("style", "max-width: 100%; height: auto; background-color: none;");
+      .attr("width", width)
+      .attr("height", height)
+      .attr("viewBox", [
+        centerX - zoomedWidth / 2,
+        centerY - zoomedHeight / 2,
+        zoomedWidth,
+        zoomedHeight,
+      ]);
     // Clear the SVG container
     svg.selectAll("*").remove();
 

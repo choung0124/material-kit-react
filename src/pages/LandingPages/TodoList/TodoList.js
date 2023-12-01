@@ -11,7 +11,7 @@ import {
   doc, // Import doc
   serverTimestamp,
 } from "firebase/firestore";
-import { Card, Button, List, ListItemText, IconButton } from "@mui/material";
+import { Card, List, ListItemText, IconButton } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import HeartAnimation from "pages/Presentation/animation";
 import DefaultNavbar from "examples/Navbars/DefaultNavbar";
@@ -20,6 +20,7 @@ import MKTypography from "components/MKTypography";
 import routes from "routes";
 import bgImage from "assets/images/bgimage.jpg";
 import MKInput from "components/MKInput";
+import MKButton from "components/MKButton";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCoF7Q6EH1Wh89vZFj550SGa65kC_M_Sno",
@@ -144,7 +145,7 @@ const TodoList = () => {
             <MKBox
               display="flex"
               style={{
-                backgroundColor: "#fff",
+                backgroundColor: "#fff4e4",
                 borderRadius: "10px",
                 marginLeft: "1rem",
                 marginRight: "1rem",
@@ -158,7 +159,11 @@ const TodoList = () => {
                 style={{ bacgroundColor: "#fff" }}
               />
             </MKBox>
-            <Button onClick={addTodo}>Add Todo</Button>
+            <MKBox marginTop={1} display="flex" alignItems="center" justifyContent="center">
+              <MKButton variant="text" color="beige" onClick={addTodo}>
+                Add Todo
+              </MKButton>
+            </MKBox>
             <List>
               {todos.map((todo) => (
                 <MKBox

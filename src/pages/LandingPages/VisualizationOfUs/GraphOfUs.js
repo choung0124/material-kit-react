@@ -118,7 +118,7 @@ function GraphOfUs() {
   const modalStyle = {
     width: width > 600 ? "80%" : "90%",
     height: height > 600 ? "70vh" : "80vh",
-    backgroundColor: "#fff",
+    backgroundColor: "#fff4e4",
     border: "2px solid #fff4e4",
     borderRadius: "10px",
     position: "relative",
@@ -206,14 +206,14 @@ function GraphOfUs() {
                 sx={{
                   mx: "auto", // Set both left and right margins to auto to center the box
                   borderTop: "2px solid #fff4e4", // Your border specification
-                  width: "72%", // Adjust the width as needed for your design
+                  width: "72 %", // Adjust the width as needed for your design
                   height: 0, // Set the height to 0 to make the box act like just a line
                 }}
                 marginTop={1}
                 marginBottom={0}
               />
               <MKBox display="flex" alignItems="center" justifyContent="center">
-                <MKTypography variant="body2" color="beige" marginTop={1} px={3} textAlign="center">
+                <MKTypography variant="body2" color="beige" marginTop={0} px={2} textAlign="center">
                   This is a graph I made to show you all the different ways we are connected:)
                 </MKTypography>
               </MKBox>
@@ -234,7 +234,7 @@ function GraphOfUs() {
                   borderRadius: "10px",
                   position: "relative", // Add this line
                 }}
-                style={{ marginRight: "1rem", marginLeft: "1rem" }}
+                style={{ marginRight: "3rem", marginLeft: "3rem" }}
               >
                 <OurVis data={GraphData} />
                 <OpenInFullIcon
@@ -277,7 +277,7 @@ function GraphOfUs() {
                   border: "2px solid #fff4e4",
                   borderRadius: "10px",
                 }}
-                style={{ marginRight: "1rem", marginLeft: "1rem" }}
+                style={{ marginRight: "3rem", marginLeft: "3rem" }}
               >
                 <HeartComponent />
               </MKBox>
@@ -307,7 +307,7 @@ function GraphOfUs() {
                 marginTop={2}
                 marginBottom={1}
               />
-              <MKBox px={3} py={1}>
+              <MKBox px={3} py={1} style={{ marginRight: "1.5rem", marginLeft: "1.5rem" }}>
                 <MKBox display="flex" style={{ backgroundColor: "#fff4e4", borderRadius: "10px" }}>
                   <MKInput
                     varint="standard"

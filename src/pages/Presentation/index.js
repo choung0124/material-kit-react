@@ -65,6 +65,7 @@ function Presentation() {
             width: "100%",
             height: "10%",
           }}
+          zIndex={1}
         >
           <MKBox display="flex" justifyContent="center">
             <img src={Icon3} alt="icon" width="150" />

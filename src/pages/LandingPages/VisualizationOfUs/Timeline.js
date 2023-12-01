@@ -24,12 +24,15 @@ import TimelineConnector from "@mui/lab/TimelineConnector";
 import TimelineContent from "@mui/lab/TimelineContent";
 import TimelineDot from "@mui/lab/TimelineDot";
 import MKButton from "components/MKButton";
+import Slide from "@mui/material/Slide";
+import Modal from "@mui/material/Modal";
 
 const Data = [
   {
     date: "2023-04-16",
     description: "Charlotte and Andie met for the first time.",
     title: "First Meeting",
+    story: "",
   },
   {
     date: "2023-04-28",
@@ -78,8 +81,50 @@ const Data = [
   },
 ];
 
+// Custom hook to get window size
+const useWindowSize = () => {
+  const [size, setSize] = useState({ width: window.innerWidth, height: window.innerHeight });
+
+  useEffect(() => {
+    const handleResize = () => {
+      setSize({ width: window.innerWidth, height: window.innerHeight });
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  return size;
+};
+
 function OurTimeline() {
   const [imageHeight, setImageHeight] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedItem, setSelectedItem] = useState(null);
+  const { width, height } = useWindowSize();
+
+  const modalStyle = {
+    width: width > 600 ? "80%" : "90%",
+    height: height > 600 ? "70vh" : "80vh",
+    backgroundColor: "#fff",
+    border: "2px solid #fff4e4",
+    borderRadius: "10px",
+    position: "relative",
+    outline: "none",
+  };
+
+  const handleButtonClick = (item) => {
+    setSelectedItem(item);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedItem(null);
+  };
 
   useEffect(() => {
     const img = new Image();
@@ -164,6 +209,7 @@ function OurTimeline() {
                       <MKButton
                         variant="contained"
                         color="beige"
+                        onClick={() => handleButtonClick(item)}
                         sx={{ color: "#d3b8c3", width: "100%", padding: "6px 16px" }}
                       >
                         {item.date}
@@ -195,6 +241,30 @@ function OurTimeline() {
                   </TimelineContent>
                 </TimelineItem>
               ))}
+              <Modal
+                open={isModalOpen}
+                onClose={handleCloseModal}
+                sx={{ display: "grid", placeItems: "center" }}
+              >
+                <Slide direction="down" in={isModalOpen}>
+                  <MKBox
+                    alignItems="center"
+                    justifyContent="center"
+                    sx={modalStyle}
+                    style={{ marginRight: "1rem", marginLeft: "1rem" }}
+                  >
+                    {selectedItem && (
+                      <>
+                        <MKTypography variant="h4" color="primary.main">
+                          {selectedItem.title}
+                        </MKTypography>
+                        <MKTypography variant="body1">{selectedItem.description}</MKTypography>
+                        {/* Add more details as needed */}
+                      </>
+                    )}
+                  </MKBox>
+                </Slide>
+              </Modal>
             </Timeline>
           </Card>
         </MKBox>

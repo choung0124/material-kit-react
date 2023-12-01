@@ -50,7 +50,6 @@ import HappyBirthdayAndieEnglishPart2 from "pages/LandingPages/Letters/HappyBirt
 import LetterFromWork from "pages/LandingPages/Letters/HappyBirthdayAndie/LetterFromWork";
 import TodoList from "pages/LandingPages/TodoList/TodoList";
 import GraphOfUs from "pages/LandingPages/VisualizationOfUs/GraphOfUs";
-import AndieAndCharlotteGPT from "pages/LandingPages/VisualizationOfUs/AndieAndCharlotteGPT";
 import OurTimeline from "pages/LandingPages/VisualizationOfUs/Timeline";
 
 // @mui icons
@@ -157,11 +156,6 @@ const routes = [
         name: "Graph of us",
         route: "/pages/LandingPages/VisualizationOfUs/GraphOfUs",
         component: <GraphOfUs />,
-      },
-      {
-        name: "Andie and Charlotte GPT",
-        route: "/pages/LandingPages/VisualizationOfUs/AndieAndCharlotteGPT",
-        component: <AndieAndCharlotteGPT />,
       },
       {
         name: "Timeline of Us",

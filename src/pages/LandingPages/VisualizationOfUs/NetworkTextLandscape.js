@@ -42,7 +42,7 @@ const OurVisTextLandscape = ({ data, width, height }) => {
 
     const link = g
       .append("g")
-      .attr("stroke", "#999")
+      .attr("stroke", "#d3b8c3")
       .attr("stroke-opacity", 0.6)
       .selectAll()
       .data(links)

@@ -42,7 +42,7 @@ const OurVisText = ({ data, width, height }) => {
 
     const link = g
       .append("g")
-      .attr("stroke", "#e6d7ff")
+      .attr("stroke", "#d3b8c3")
       .attr("stroke-opacity", 0.6)
       .selectAll()
       .data(links)

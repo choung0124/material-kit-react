@@ -51,9 +51,8 @@ import LetterFromWork from "pages/LandingPages/Letters/HappyBirthdayAndie/Letter
 import TodoList from "pages/LandingPages/TodoList/TodoList";
 import GraphOfUs from "pages/LandingPages/VisualizationOfUs/GraphOfUs";
 import AndieAndCharlotteGPT from "pages/LandingPages/VisualizationOfUs/AndieAndCharlotteGPT";
-import ThingsWeDidTogether from "pages/LandingPages/ThingsWeDid/ThingsWeDidTogether";
-import ThingsCharlotteDidForAndie from "pages/LandingPages/ThingsWeDid/ThingsCharlotteDidForAndie";
-import ThingsAndieDidForCharlotte from "pages/LandingPages/ThingsWeDid/ThingsAndieDidForCharlotte";
+import OurTimeline from "pages/LandingPages/VisualizationOfUs/Timeline";
+
 // @mui icons
 
 // Sections
@@ -164,28 +163,10 @@ const routes = [
         route: "/pages/LandingPages/VisualizationOfUs/AndieAndCharlotteGPT",
         component: <AndieAndCharlotteGPT />,
       },
-    ],
-  },
-  {
-    name: "Things We Did",
-    icon: <Icon>dashboard</Icon>,
-    columns: 1,
-    rowsPerColumn: 2,
-    collapse: [
       {
-        name: "Things We Did",
-        route: "/pages/LandingPages/ThingsWeDid/ThingsWeDidTogether",
-        component: <ThingsWeDidTogether />,
-      },
-      {
-        name: "Things Charlotte Did for Andie",
-        route: "/pages/LandingPages/ThingsWeDid/ThingsCharlotteDidForAndie",
-        component: <ThingsCharlotteDidForAndie />,
-      },
-      {
-        name: "Things Andie Did for Charlotte",
-        route: "/pages/LandingPages/ThingsWeDid/ThingsAndieDidForCharlotte",
-        component: <ThingsAndieDidForCharlotte />,
+        name: "Timeline of Us",
+        route: "/pages/LandingPages/VisualizationOfUs/Timeline",
+        component: <OurTimeline />,
       },
     ],
   },

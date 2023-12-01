@@ -25,6 +25,7 @@ import { Modal, Slide } from "@mui/material";
 import OurVisText from "./NetworkText";
 import OurVisTextLandscape from "./NetworkTextLandscape";
 import MKAlert from "components/MKAlert";
+import HeartComponent from "./CharlotteCode";
 
 // Custom hook to get window size
 const useWindowSize = () => {
@@ -141,7 +142,7 @@ function GraphOfUs() {
             >
               <MKBox
                 sx={{
-                  backgroundColor: "#fff",
+                  backgroundColor: "#fff4e4",
                   border: "2px solid transparent",
                   borderRadius: "10px",
                   position: "relative", // Add this line
@@ -157,6 +158,12 @@ function GraphOfUs() {
                   }}
                   onClick={toggleModal}
                 />
+              </MKBox>
+              <MKBox
+                sx={{ backgroundColor: "#fff", border: "2px solid #fff4e4", borderRadius: "10px" }}
+                style={{ marginRight: "1rem", marginLeft: "1rem" }}
+              >
+                <HeartComponent />
               </MKBox>
             </Card>
             <Modal

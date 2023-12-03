@@ -63,12 +63,9 @@ function GraphOfUs() {
 
   const askQuestion = async (question) => {
     try {
-      const response = await axios.post(
-        "https://virginia-sunshine-allowance-perry.trycloudflare.com/question/",
-        {
-          question: question,
-        }
-      );
+      const response = await axios.post("https://charlotteanddie.com/question/", {
+        question: question,
+      });
       setStreamingResponseUrl(response.data.url);
     } catch (error) {
       console.log(error);

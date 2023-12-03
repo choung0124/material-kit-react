@@ -20,16 +20,82 @@ import bgImage from "assets/images/bgimage.jpg";
 import DateTracker from "pages/Presentation/DateTracker";
 import DateTrackerDating from "pages/Presentation/DateTrackerDating";
 import MKTypography from "components/MKTypography";
-import { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, Fragment } from "react";
 import NowPlaying from "./NowPlaying";
 import NowPlayingChar from "./NowPlayingChar";
 import HeartAnimation from "./animation";
 import Icon3 from "assets/images/icon3.png";
 import Icon2 from "assets/images/icon2.png";
+import { Modal } from "@mui/material";
+import cornerTopLeft from "assets/images/corner1.png";
+import cornerBottomRight from "assets/images/corner4.png";
+import AdventData from "./AdventData";
+import Slide from "@mui/material/Slide";
+
+// Custom hook to get window size
+const useWindowSize = () => {
+  const [size, setSize] = useState({ width: window.innerWidth, height: window.innerHeight });
+
+  useEffect(() => {
+    const handleResize = () => {
+      setSize({ width: window.innerWidth, height: window.innerHeight });
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  return size;
+};
+
+// Function to convert newlines in text to <br> elements for display
+function renderTextWithNewlines(text) {
+  if (!text) return null; // Check if text is undefined or empty
+
+  return text.split("\n").map((line, index) => (
+    <Fragment key={index}>
+      {line}
+      <br />
+    </Fragment>
+  ));
+}
 
 function Presentation() {
   const [imageHeight, setImageHeight] = useState(0);
   const containerRef = useRef(null);
+  const dates = Array.from({ length: 25 }, (_, i) => i + 1);
+  const [currentDate] = useState(new Date().getDate());
+  const [openModal, setOpenModal] = useState(false);
+  const [modalContent, setModalContent] = useState({ alt: "" });
+  const { width, height } = useWindowSize();
+
+  const modalStyle = {
+    width: width > 600 ? "80%" : "90%",
+    maxHeight: height > 600 ? "70vh" : "80vh",
+    backgroundColor: "#fff",
+    border: "2px solid #fff4e4",
+    borderRadius: "10px",
+    position: "relative",
+    outline: "none",
+  };
+
+  const handleDateClick = (date) => {
+    if (date <= currentDate) {
+      const adventItem = AdventData.find((item) => item.id === date);
+      if (adventItem) {
+        setModalContent(adventItem);
+        setOpenModal(true);
+      }
+    }
+  };
+
+  // Function to close modal
+  const handleClose = () => {
+    setOpenModal(false);
+  };
 
   useEffect(() => {
     const img = new Image();
@@ -182,6 +248,114 @@ function Presentation() {
                     </MKTypography>
                   </Grid>
                 </Container>
+                <MKBox
+                  sx={{
+                    mx: "auto", // Set both left and right margins to auto to center the box
+                    borderTop: "2px solid #fff4e4", // Your border specification
+                    width: "90%", // Adjust the width as needed for your design
+                    height: 0, // Set the height to 0 to make the box act like just a line
+                  }}
+                  marginTop={2}
+                  marginBottom={1}
+                />
+                <MKBox display="flex" alignItems="center" justifyContent="center">
+                  <MKTypography variant="body2" color="beige" marginTop={1}>
+                    Our Advent Calendar !
+                  </MKTypography>
+                </MKBox>
+                <MKBox
+                  sx={{
+                    mx: "auto", // Set both left and right margins to auto to center the box
+                    borderTop: "2px solid #fff4e4", // Your border specification
+                    width: "90%", // Adjust the width as needed for your design
+                    height: 0, // Set the height to 0 to make the box act like just a line
+                  }}
+                  marginTop={2}
+                  marginBottom={1}
+                />
+                <MKBox px={2.5} marginTop={2}>
+                  <Grid container spacing={1}>
+                    {dates.map((date) => (
+                      <Grid item xs={2} key={date}>
+                        <MKBox
+                          onClick={() => handleDateClick(date)}
+                          sx={{
+                            position: "relative",
+                            height: "3rem",
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            backgroundColor: date <= currentDate ? "#d3b8c3" : "#fff4e4",
+                            cursor: date <= currentDate ? "pointer" : "default",
+                          }}
+                        >
+                          <MKTypography
+                            onClick={() => handleDateClick(date)}
+                            variant="body2"
+                            color={date <= currentDate ? "beige" : "lilac"}
+                          >
+                            {date}
+                          </MKTypography>
+                          <img
+                            src={cornerTopLeft}
+                            alt="Decorative corner"
+                            style={{
+                              position: "absolute",
+                              top: -5,
+                              left: -5,
+                              width: "30px",
+                              height: "30px",
+                            }}
+                            onClick={() => handleDateClick(date)}
+                          />
+                          {/* Bottom-right corner image */}
+                          <img
+                            src={cornerBottomRight}
+                            alt="Decorative corner"
+                            style={{
+                              position: "absolute",
+                              bottom: -5,
+                              right: -5,
+                              width: "30px",
+                              height: "30px",
+                            }}
+                            onClick={() => handleDateClick(date)}
+                          />
+                        </MKBox>
+                      </Grid>
+                    ))}
+                  </Grid>
+                </MKBox>
+                <Modal
+                  open={openModal}
+                  onClose={handleClose}
+                  sx={{ display: "grid", placeItems: "center" }}
+                  overflow="auto"
+                >
+                  <Slide direction="down" in={openModal}>
+                    <MKBox
+                      alignItems="center"
+                      justifyContent="center"
+                      sx={modalStyle}
+                      style={{
+                        marginRight: "1rem",
+                        marginLeft: "1rem",
+                        backgroundColor: "#d3b8c3",
+                        border: "2px solid #fff4e4",
+                      }}
+                      overflow="auto"
+                      p={3}
+                    >
+                      {/* Add any other content you want to display from modalContent */}
+                      <MKTypography variant="h3" color="beige" textAlign="center">
+                        {modalContent.id}
+                      </MKTypography>
+                      <MKTypography variant="body2" color="beige" textAlign="center">
+                        {renderTextWithNewlines(modalContent.alt)}
+                      </MKTypography>
+                    </MKBox>
+                  </Slide>
+                </Modal>
                 <MKBox
                   sx={{
                     mx: "auto", // Set both left and right margins to auto to center the box

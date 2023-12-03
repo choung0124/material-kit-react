@@ -27,7 +27,7 @@ const AdventData = [
   {
     id: 6,
     img: "",
-    alt: "",
+    alt: "It's the 6th day of Christmas <3 In this message, I'd like to remind you of the difference you make in the world. The world is better, brighter, and warmer place with you in it :) Maybe that is something that is easy to say, but let me back it up with some proof. Me! Without any hesitiation I can say you make my world a better, brighter and warmer place. If you shared even a tiny fraction of the impact you have on my life with someone else, it would make a world of a difference to their life :) Things are better with you, I am better with you, I'd be a different person without you. I like the person I am with you, more than that person :) Thank you for the sunshine that you bring into the world.",
   },
   {
     id: 7,

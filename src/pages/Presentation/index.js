@@ -66,7 +66,7 @@ function renderTextWithNewlines(text) {
 function Presentation() {
   const [imageHeight, setImageHeight] = useState(0);
   const containerRef = useRef(null);
-  const dates = Array.from({ length: 25 }, (_, i) => i + 1);
+  const dates = Array.from({ length: 24 }, (_, i) => i + 1);
   const [currentDate] = useState(new Date().getDate());
   const [openModal, setOpenModal] = useState(false);
   const [modalContent, setModalContent] = useState({ alt: "" });

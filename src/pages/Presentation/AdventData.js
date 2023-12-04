@@ -17,7 +17,7 @@ const AdventData = [
   {
     id: 4,
     img: "",
-    alt: "Hey ! it's the fourth day of Christmas :) I hope you don't get bored of quotes hehe because here's another one that resonates with me when I'm with you. 'In the midst of winter, I found there was, within me, an invincible summer.' - Albert Camus. It's almost funny how much this made sense to me this winter. I've always loved this quote, but it felt even more special with you. This winter, of 2023, in the midst of my lowest point this year, I found you. You are my invincible summer. You make any season feel like summer :)",
+    alt: "Hey ! it's the fourth day of Christmas :) I hope you don't get bored of quotes hehe because here's another one that resonates with me when I'm with you. 'In the midst of winter, I found there was, within me, an invincible summer.' - Albert Camus. It's almost funny how much this made sense to me this winter. I've always loved this quote, but it felt even more special with you. This winter, of 2023, in my winter this year, I found you. You are my invincible summer. You make any season feel like summer :)",
   },
   {
     id: 5,
@@ -32,27 +32,27 @@ const AdventData = [
   {
     id: 7,
     img: "",
-    alt: "",
+    alt: "7th day of Christmas !! It's already one week into December huh? Speaking of time, there's something I'd like to do with you. And that something is to grow old with you. I yearn for a time when we will smile at each other, with smiles full of wrinkles. Looking back at old pictures, reminiscing about the life we shared, and continue to share. Squinting at the pictures, trying to make out the other people in the pictures. I want to slow-dance with you, to songs that remind us of the times of our youth. I love you, I love us, and I love me but I also love who we will be in the future, wrinkles and all.",
   },
   {
     id: 8,
     img: "",
-    alt: "",
+    alt: "Today is the 8th day of Christmas ! Today is Friday actually, which means I get to see you soon hehe. Knowing I get to see you at the end of the week is a gift by itself :) Sometimes during the week my mind is quite busy. There’s emotions and thoughts flying left and right, and it can become really loud. But when I come to see you, or you come to see me, everything becomes quiet. Imagine It’s like very little voice in my head stops what they are doing, to pay attention to you. You have that kind of power with me :) See you soon baby <3",
   },
   {
     id: 9,
     img: "",
-    alt: "",
+    alt: "It's the 9th day of Christmas ! ‘On the 9th day of Christmas my true love sent to me ~ 9 ladies dancing” well, we are two ladies not nine, but we are certainly dancing. Our love is a dance. Sometimes the tempo is fast like salsa, but others it is slow like ballroom dancing. Dance has many different forms, each originating from some place different, as does our love. Some dances you know better than I, and likewise there are some I know better than you. But that doesn’t stop us from learning each other’s dances. Sure, it’s awkward waddling across that dance floor for the first time, but we aren’t afraid to be awkward, if it means we can dance with each other one more time. Besides, I like being awkward around you :)",
   },
   {
     id: 10,
     img: "",
-    alt: "",
+    alt: "Hmmm it’s the 10th day of Christmas already. I’m going to tell you a story. Once upon a time, there was some land. In the beginning the land had no water, it was so dry that there were cracks along the surface. It was dry for a long time. After some time had passed, people would come to the land, and pour water into the cracks. At first there was one, but in a few years there were many that would come to pour their water into the cracks. Suddenly, the land was no longer dry. Plants started to grow and animals came to visit. But sometimes, the land would become dry again. When the people stopped coming to pour their water. The plants would wither and the animals would leave. Not for long though. The land realized there was water, within itself. Deep within those cracks, there was water, so much water, the land had just not realized it until now. With access to the water within, the plants grew again, the animals came again to visit, and this time the land could share some of its water to the people who visited. The land is me, and my heart. At times I will share you my water, at times you will share me yours. I wish to make my land flourish, for you. I want you to see what beautiful flowers I have grown for you when you visit, what cute little animals I have taken under my wing. I want to grow tall trees for you, so that you can sit in the shade and enjoy the gentle breeze across your face. Btw it’s always summer when you visit :)",
   },
   {
     id: 11,
     img: "",
-    alt: "",
+    alt: "Today is the 11th day of Christmas ! Today I'd like to talk about… sleep! Haha I actually don't fall asleep very easily usually. But I do when I'm laying next to you :) Usually I need something on the background, and even then it can take hours. But with you by my side? Instant. You make me feel even more comfortable than I do alone. I don't know how you do it. I wish I could stay up a bit longer to see you fall asleep first. I want to tuck you back into the sheets when you move as you sleep. I want to give you kisses on the forehead whilst you sleep. But alas, I sleep too well around you ㅋㅋ You make me feel so safe.",
   },
   {
     id: 12,

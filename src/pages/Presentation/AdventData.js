@@ -57,12 +57,12 @@ const AdventData = [
   {
     id: 12,
     img: "",
-    alt: "",
+    alt: "12th day of Christmas already !! We’re halfway there hehe. Lets talk about encounters. Why do we have encounters? Why do I meet new people? Meeting people can be scary, many people I meet can be unkind, hurtful and have a negative impact in my life. But still, I meet new people. I muster up the courage to meet one more person, in the hopes that the next one will be different. Because amongst all those people I meet, there are some beautiful souls that shine above the crowd. Those beautiful souls are few and far between, yet somehow, your soul shines even brighter than the other beautiful souls. Gratitude is not enough to describe how thankful I am to meet you. Beautiful is not enough to describe the beauty of your soul. Knowing I met you, and that you are in life, I don’t worry about new encounters anymore. Who cares? I’ve already had, and have the best one :) My encounter with you.",
   },
   {
     id: 13,
     img: "",
-    alt: "",
+    alt: "Its the 13th day of Christmas :) Kind of carrying on from yesterday, I want to explain what I mean when I talk about the light that shines from your soul. Your soul shines like the moon. Let me explain :) The moonlight that shines from within you is beautiful. When the moonlight hits water in the ocean, your reflection is breathtaking. The light is bright enough to light up the night sky, but it’s not too bright that it hurts your eyes to look at the moon. It gives you a chance to appreciate all of its beauty :) Beauty is not the only way you are like the moon. When I look up at the night sky, there are millions of stars, but I always notice you first. On days when the sky is cloudy, maybe I won’t notice the stars, but I’ll always see you. Do you get what I mean? :) ",
   },
   {
     id: 14,
@@ -116,11 +116,6 @@ const AdventData = [
   },
   {
     id: 24,
-    img: "",
-    alt: "",
-  },
-  {
-    id: 25,
     img: "",
     alt: "",
   },

@@ -67,7 +67,7 @@ const AdventData = [
   {
     id: 14,
     img: "",
-    alt: "",
+    alt: "Today is the 14th day of Christmas <3 I’d like to talk about a song called meteor shower, by Cavetown. I like Cavetown’s songs alot. We are both trans and on the asexual spectrum, and that comes through in his songs.\n\nMy heart and the earth share the same rule\nIt starts with love and it ends with you\nBut don't go outside, it's dangerous tonight\nWithout me right here by your side\n\nTake it slow, you'll know\nWhich way to go\nSew up your skull\nTake your time\nAnd we'll be just fine\n\nMissing pieces of my skull\nI'll sew on patches of my own soul\n\nWe’re all missing pieces of our skulls. But that’s okay :) I’ll sew on patches of my soul to your skull, and I hope you’ll sew on patches of yours to mine. I want my skull to be covered with the colors of your soul :)",
   },
   {
     id: 15,

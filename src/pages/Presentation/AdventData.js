@@ -72,12 +72,12 @@ const AdventData = [
   {
     id: 15,
     img: "",
-    alt: "",
+    alt: "15th of December ! Once again the weekend is almost here, I can rejoice hehe <3 You may sometimes wonder why I like to visualize things about you, or us. Our website, graph and new things I want to make for you are all visualizations of you, us, or the feelings I have towards you. But why? Well that’s a bit complicated. One reason is to immortalize this, all of this. The moments we share, the moments we shared, and the moments we continue to share, I’d like them to live for an eternity. Something you may have noticed, is that the way I visualize is complicated. That’s exactly what I want. The love I have for you is so endless, and complex. It’s not something that can be visualized easily in a simple diagram. If you were to look at a small part of my love, it would seem simple. The more you look at it, the more you dive into it you would find that, that small part of love leads to an endless world, like the wardrobe in Narnia. Each little part of my love leads to a different world, each world built on a different form of my love for you. At the same time, all of the worlds are connected to each other. It’s difficult to visualize this, but I create a visualization for each world, one at a time. I can connect these worlds through our site :) I can take my time, because new worlds are forming every moment I spend with you <3",
   },
   {
     id: 16,
     img: "",
-    alt: "",
+    alt: "Today’s the 16th day of Christmas :3 Actually today I wanted to talk about a song that might make us a bit uncomfortable, but there is a good ending, so stay with me. The song is called Mercury - By Bye Badman. This song describes my dysphoria quite well.\n\n난 가질 수 없는 것들을\n넌 가지고 있었어\n넌 항상 더 높은 곳에서\n빛나고 있었어\n난 가질 수 없었어\n너보다 부족해서\n더 멀게만 느껴졌어\n너와 나의 거리\n눈을 맞추면\n입을 맞추면\n눈을 맞추면\n입을 맞추면\n너와 함께면\n함께 한다면\n우리의 거린\n달라졌을까\n널 바라보면\n눈을 맞추면\n입을 맞추면\n깜깜한 밤 하늘과\n꿈에 젖어\n너와 함께면\n함께 한다면\n사라지는\n현실감\n\nThe beginning of this song talks about how you have something I don’t. That thing is your gender. I’m much more confident in my identity than I was before, and I put in work to continue growing that confidence. Despite that, sometimes, just sometimes. I feel jealous, dysphoric. And that creates distance, like the song says. But this isn’t a sad message. The song goes on to say, if our eyes meet, if our lips meet, if we spend time together, would the distance have changed? Yes it would, and it does. When I spend time with you, when I match my eyes to yours, when I put my lips against yours, the distance disappears. Dysphoria is real, but it isn’t something tangible. I won’t let it get in the way of us, I’ll continue to work on it, but you give me the strength to continue. Not only for us, but for me too. ",
   },
   {
     id: 17,

@@ -82,12 +82,12 @@ const AdventData = [
   {
     id: 17,
     img: "",
-    alt: "",
+    alt: "17th day of Christmas baby <3 Just over a week left until the big day hehe. I don’t usually talk about looks but I wanted to talk about it for today :) As you know, I am asexual. I can’t tell what is sexually attractive and what’s not. But I can tell what’s pretty. You are beautiful. I don’t know how to word it very well, so I take parts and of you and compliment them. Like your eyelashes, for example. It’s not just your eyelashes though. It’s the deep, rich hazelnut color of your eyes, whose reflection I get lost in. It’s the shape of your nose, the way the bridge sits perfectly between your eyes, the way it scrunches up a little when you smile, the way it flows so gently towards your lips. I can’t get over your lips. When you pout your lips sometimes it makes a rose, and it’s really pretty. There’s a mix of light pink and a very gentle red that, when put together they really do look like the petals of a flower. It’s your ears too. They are small and cute hehe but, more importantly they look pretty on the sides of your face. They don’t stick out so it’s not something everyone will notice, but the lines inside your ears flow elegantly. I like following where they start and where they stop. This is why I’m jealous of the people who get to see you in your day-to-day haha. I think you are beautiful, and that feeling grows. The more I spend time looking at you, the more ways I find that you are beautiful. I know very well what’s inside is more important, and I like talking about that more. But it’s also nice to talk about these things too <3 I’m so lucky to have someone so gorgeous by my side <33",
   },
   {
     id: 18,
     img: "",
-    alt: "",
+    alt: "Today is the 18th day of Christmas :) I use my flower analogy a lot to describe people. One way I can use it, is to see all the people in the world as a large bed of flowers, of course you are one of those flowers too. When so many flowers are bunched together, it’s difficult to pick out one from the rest. But yours? I would notice from a mile away :) It’s not that the flower is big, no no. The flower stands out in a different way. On the outside, you can see it has light pink petals. The tone of pink is so light, in fact one might mistake it for white. On the inside of the flower, you’ll find luminescent pollen, each grain shining tiny beams of light from within. These beams of light bounce onto the brightly colored petals. Each beam is small, but when millions of grains of pollen are shining together it lights up the whole flower bed in an instant. All this to say, the flower is beautiful :) inside and out. Even if some other flower had the same petals as yours, they wouldn’t shine the same way that you do. I love you. ",
   },
   {
     id: 19,

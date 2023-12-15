@@ -112,7 +112,7 @@ const AdventData = [
   {
     id: 23,
     img: "",
-    alt: "",
+    alt: "Tick tock, 2 days till Christmas <3 it’s the 23rd day of Christmas and I get to spend today with you hehe. Tomorrow is a big day, even though I’m not writing this on the day I can still feel myself sweating already haha. But I’ll calm down, because you know what? I’ll be with you today. Whenever I’m going off the rails a little bit, a moment with you is enough to bring me back to reality. It’s not that you need to do something to ground me, it’s just that when I spend a moment with you, all of the weird thoughts I had vanish. They’re not important anymore, and what’s important is right in front of me <3 Lets have a good day together baby",
   },
   {
     id: 24,

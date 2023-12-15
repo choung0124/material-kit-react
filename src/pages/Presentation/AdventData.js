@@ -97,17 +97,17 @@ const AdventData = [
   {
     id: 20,
     img: "",
-    alt: "",
+    alt: "It’s the 20th day of Christmas !! Literally just 4 more days before Christmas hehehehe I wish you could feel how excited I am for the big day. Today’s your last day of finals, so I wanted to give you a special 파이팅 for this day. When it comes to something like an exam, sadly I cannot do them for you. What I can do, is remind you that when it is all over you will have someone who will be proud of your endeavor. I’ll give you an extra push on the back when you need it, and I’ll swap that out for a pat on the back when it’s over :) Some days, or even many, may feel like a battle but every one of those days you make it through is a battle you’ve won. You’ve won countless battles, the battle today is one more you can add to that record :) I’ll be by your side, but at the same time I’ll be waiting on the other side to celebrate and talk all about your victory. So clench your arsehole, and get ready for one more fight. Let’s celebrate when it is all over <3",
   },
   {
     id: 21,
     img: "",
-    alt: "",
+    alt: "21st day of Christmas~~~ it’s almost here I can smell it. I’ve actually never spent Christmas, alone with my partner. It’s always been with my grandparents, my dad once, alone or with someone else’s family. So amongst all other reasons this Christmas is special to me, this is one more to add to the list hehe. Nothing will have to be forced this Christmas, because it’s with you :) I can let down my walls and truly enjoy such a special day. I hope it snows this Christmas. I’d like to walk through the snow with you on Christmas morning. I’d like to make angels in the snow next to you, and draw penises on them after. But I also want you to feel at home this Christmas. I don’t usually spend Christmas with my family, but you do. When you first told me you wanted to spend Christmas with me, I was very happy, but I also had the thought of “what should I do to make up for the fact that she’s away from home”. Maybe you don’t mind, or maybe you feel at home already, or maybe there’s not much I can do, but if there’s the smallest possibility that I could make you feel more at home I’ll jump at it. So if there is something you’d like to do, or there’s something you’d like me to do, or there’s something you’d like us to do that would make you feel more at home don’t hesitate to ask baby <3 I’m not kidding I’ll go to extreme measures to make sure it happens hehe.",
   },
   {
     id: 22,
     img: "",
-    alt: "",
+    alt: "Today is the 22nd day of Christmas baby <3 I’m going to switch to doing a count-down now, we are 3 days away hehe. How can time move so fast, yet each day feels so slow ㅋㅋ At his time of year I like to make a report. It contains milestones I’ve achieved this year, things I’ve learned/improved upon, and things I should work on in the next year. As I’m writing it somehow I realize our relationship fits into all three of those categories. It’s certainly a milestone, it’s also the milestone I’m most proud of. It’s also something I’ve learned from. There’s a lot that I learn from my time with you. I learn about you, about us but I also learn about myself. When I’m in a relationship, that’s when I’m most vulnerable and it’s where I see sides of myself that wouldn’t come up to the surface if I wasn’t in one. That’s a place where I can learn what I need to work on, and what I have improved upon. I’m grateful you give me that opportunity. That leads me onto the third category, things I should work on in the next year. This one is an odd one, because as I am in a relationship with you, I will always be looking for opportunities to grow, it doesn’t matter if its the new year :) For example, I know my love, and how I like to express it but I think there is a different way to love each person in this world. That doesn’t mean I’m going to learn the way for every person but I’m learning the way for you. Every second we spend together is another page in my book called how to love Charlotte :) I work towards the day that it is no longer a book, and instead it is a library <3 I love you, and I’ll learn every single way that there is to love you.",
   },
   {
     id: 23,
@@ -117,7 +117,7 @@ const AdventData = [
   {
     id: 24,
     img: "",
-    alt: "",
+    alt: "ah. Finally we are here. It’s the 24th of December baby. I want to leave this message short and sweet hehe. I love you. No matter where we are in life you will will always have a home in my heart. That’s a royal promise: ) I love you, Merry Christmas",
   },
 ];
 
